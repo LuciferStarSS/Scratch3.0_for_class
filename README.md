@@ -1,9 +1,9 @@
 # Scratch3.0_for_class
 
-    本项目的Scratch3.0编辑器，脱胎于scratch-www(https://github.com/LLK/scratch-www)，
-而课堂管理功能，则建立在websocket(https://github.com/zhenbianshu/websocket)的基础之上。
+本项目的Scratch3.0编辑器，脱胎于scratch-www( https://github.com/LLK/scratch-www )，
+而课堂管理功能，则建立在websocket( https://github.com/zhenbianshu/websocket )的基础之上。
 
-    系统需求：Apache2.3+PHP7.5 64位。
+    系统需求：Apache2.3+PHP7.5 64位。 PHP需要安装socket扩展以开启WebSocket服务。
     不需要数据库。
 
     当前项目，目录结构如下：
