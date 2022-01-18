@@ -1,0 +1,21 @@
+var o=document.getElementsByClassName("controls_controls-container_2xinB");
+var img=document.createElement("img"); 
+img.id="RECORD";
+img.src="./img/rec.png";
+img.alt="test";
+img.width=32;
+img.height=32;
+img.onclick=function()
+{
+   if(img.src.indexOf("rec.png"))
+   {
+      img.src="./img/rec.gif";
+      createRecord();
+   }
+   else
+   {
+      img.src="./img/rec.png";
+      download();
+   }
+};
+o[0].appendChild(img);

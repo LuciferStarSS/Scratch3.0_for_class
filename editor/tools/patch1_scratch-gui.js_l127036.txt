@@ -1,0 +1,64 @@
+},  {
+    key: "saveonlineProject",
+    value: function saveonlineProject(bAutoSave) {
+      var soundDescs = serializeSounds(this.runtime);
+      var costumeDescs = serializeCostumes(this.runtime);
+      var projectJson = this.toJSON(); // TODO want to eventually move zip creation out of here, and perhaps
+      // into scratch-storage
+
+      var zip = new JSZip(); // Put everything in a zip file
+
+      zip.file('project.json', projectJson);
+
+      this._addFileDescsToZip(soundDescs.concat(costumeDescs), zip);
+	 
+      zip.generateAsync({type:"Blob",compression: "DEFLATE"}).then(function(content) {
+         var fils = new File([content],'SCRATCH.zip',{type: "zip"});
+         var formData = new FormData();
+         formData.append("SBFILE",fils);
+         $.ajax({
+	   url:bAutoSave==true?'autosaveProject.php':'saveProject.php',
+	   type:'POST',
+	   data:formData,
+	   processData:false,
+	   contentType:false,
+	   success:function (data) {
+	   }
+         });
+      });
+    }
+    /*
+     * @type {Array<object>} Array of all costumes and sounds currently in the runtime
+     */
+  },{
+
+
+
+
+
+
+
+L186331:
+
+
+      if (this._snapshotCallbacks.length > 0) {\n
+        var snapshot = gl.canvas.toDataURL();\n
+\n
+        var formData = new FormData();\n
+        formData.append("SBFILE",fils);\n
+        $.ajax({\n
+	       url:bAutoSave==true?'autosaveProject.php':'saveProject.php',\n
+	       type:'POST',\n
+	       data:formData,\n
+	       processData:false,\n
+	       contentType:false,\n
+	       success:function (data) {\n
+	           scratchStatus(data);\n
+	       }\n
+         });\n
+         this._snapshotCallbacks.length=0;\n
+        //this._snapshotCallbacks.forEach(function (cb) {\n
+        //  return cb(snapshot);\n
+        //});\n
+\n
+        //this._snapshotCallbacks = [];\n

@@ -1,0 +1,98 @@
+﻿.new {
+   border-color :#e0e0e0;
+#   border-bottom-style: inset;
+}
+
+.newt {
+#   border-right-style: inset;
+}
+
+.text-gradient0 {  
+   background: -ms-linear-gradient(left,#eeeeee, #eeeeee, #eeeeee);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#aaaaaa), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient1 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#ff3333);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff3333), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient2 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#ff9900);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff9900), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient3 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#ffff33);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffff33), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient4 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#33FF00);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#33FF00), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient5 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#33aa00);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#33aa00), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient6 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#0000ee);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#0000ee), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+.text-gradient7 {  
+   background: -ms-linear-gradient(left, #eeeeee,#ffffff,#660066);   
+   font-family: '新宋体';
+   background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#660066), to(rgba(51, 51, 51, 1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size:20px;
+}
+
+
+.in
+{
+   width:35px;
+   height:23px;
+   font-size:20px;
+   text-align: center;
+}
+
+.in_CHANGED
+{
+   width:35px;
+   height:23px;
+   font-size:20px;
+   color: red;
+   text-align: center;
+}

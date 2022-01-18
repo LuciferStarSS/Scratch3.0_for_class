@@ -1,0 +1,38 @@
+//删除所有角色
+for(var i=oGUI.props.vm.runtime.targets.length-1;i>0 ;i--){
+   if(oGUI.props.vm.runtime.targets[i].isStage!=true){
+      oGUI.props.vm.deleteSprite(oGUI.props.vm.runtime.targets[i].id);
+   }
+}
+
+
+//向所有角色推送造型Car
+var obj={"name":"Car","tags":["people","drawing"],"isStage":false,"variables":{},"costumes":[{"assetId":"7d25141fd5d55013c14982eebf810e29","name":"Car","bitmapResolution":1,"md5ext":"7d25141fd5d55013c14982eebf810e29.png","dataFormat":"png","rotationCenterX":100,"rotationCenterY":50}],"sounds":[],"blocks":{}};
+for(var i=oGUI.props.vm.runtime.targets.length-1;i>0 ;i--){
+   if(oGUI.props.vm.runtime.targets[i].isStage!=true){
+      oGUI.props.vm.addCostume("7d25141fd5d55013c14982eebf810e29.png",obj,oGUI.props.vm.runtime.targets[i].id,2);
+   }
+}
+
+
+//向角色1推送造型Car
+var obj={"name":"Car","tags":["people","drawing"],"isStage":false,"variables":{},"costumes":[{"assetId":"7d25141fd5d55013c14982eebf810e29","name":"Car","bitmapResolution":1,"md5ext":"7d25141fd5d55013c14982eebf810e29.png","dataFormat":"png","rotationCenterX":100,"rotationCenterY":50}],"sounds":[],"blocks":{}};
+for(var i=oGUI.props.vm.runtime.targets.length-1;i>0 ;i--){
+   if(oGUI.props.vm.runtime.targets[i].getName()=="角色1"){
+      oGUI.props.vm.addCostume("7d25141fd5d55013c14982eebf810e29.png",obj,oGUI.props.vm.runtime.targets[i].id,2);
+      break;
+   }
+}
+
+
+
+
+//当前角色图像
+oGUI.props.vm.runtime.targets[1].getCurrentCostume().asset.decodeText();
+
+//当前角色图像MD5值
+oGUI.props.vm.runtime.targets[1].getCurrentCostume().md5
+
+
+
+["NP","角色2",[10,10]]

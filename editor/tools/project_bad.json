@@ -1,0 +1,1171 @@
+﻿{
+	"targets": [{
+		"isStage": true,
+		"name": "Stage",
+		"variables": {
+			"oK|iM+!~8tvxx!|4_)5=-编-": ["编", "0"],
+			"oK|iM+!~8tvxx!|4_)5=-程-": ["程", 4],
+			"oK|iM+!~8tvxx!|4_)5=-很-": ["很", 1],
+			"oK|iM+!~8tvxx!|4_)5=-好-": ["好", 4],
+			"oK|iM+!~8tvxx!|4_)5=-玩-": ["玩", "0"],
+			"oK|iM+!~8tvxx!|4_)5=-对-": ["对", 1]
+		},
+		"lists": {},
+		"broadcasts": {},
+		"blocks": {},
+		"comments": {},
+		"currentCostume": 0,
+		"costumes": [{
+			"assetId": "26563f5d78af54d6ae3b9afd00bc58d4",
+			"name": "背景1",
+			"bitmapResolution": 2,
+			"md5ext": "26563f5d78af54d6ae3b9afd00bc58d4.png",
+			"dataFormat": "png",
+			"rotationCenterX": 480,
+			"rotationCenterY": 360
+		}],
+		"sounds": [{
+			"assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
+			"name": "pop音效",
+			"dataFormat": "wav",
+			"format": "",
+			"rate": 44100,
+			"sampleCount": 1032,
+			"md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
+		}],
+		"volume": 100,
+		"layerOrder": 0,
+		"tempo": 60,
+		"videoTransparency": 50,
+		"videoState": "off",
+		"textToSpeechLanguage": null
+	}, {
+		"isStage": false,
+		"name": "Bear1",
+		"variables": {},
+		"lists": {},
+		"broadcasts": {},
+		"blocks": {
+			"XQWcUe:bKbu0#:TW?RU,": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": null,
+				"inputs": {},
+				"fields": {},
+				"shadow": false,
+				"topLevel": true,
+				"x": -140,
+				"y": 1643
+			},
+			"{Afq|W0}KW2V+u4gLXw/": {
+				"opcode": "data_setvariableto",
+				"next": ":^6/{,_{HlC5#/N~hHG=",
+				"parent": ";n/vlTdjrJa#c+pLH87f",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["编", "oK|iM+!~8tvxx!|4_)5=-编-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			":^6/{,_{HlC5#/N~hHG=": {
+				"opcode": "control_repeat",
+				"next": null,
+				"parent": "{Afq|W0}KW2V+u4gLXw/",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "igHg-Y_COZt0x(B,gaGf"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"igHg-Y_COZt0x(B,gaGf": {
+				"opcode": "data_setvariableto",
+				"next": ")WYFPYO!f_]6}PCaXzKd",
+				"parent": ":^6/{,_{HlC5#/N~hHG=",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["程", "oK|iM+!~8tvxx!|4_)5=-程-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			")WYFPYO!f_]6}PCaXzKd": {
+				"opcode": "control_repeat",
+				"next": "V%D3DD/~HT,jb#p33eFA",
+				"parent": "igHg-Y_COZt0x(B,gaGf",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "DHkKMspihE2Egd)rlFHn"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"DHkKMspihE2Egd)rlFHn": {
+				"opcode": "data_setvariableto",
+				"next": "#0-m!NhCRV,zCf8GbMcj",
+				"parent": ")WYFPYO!f_]6}PCaXzKd",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["很", "oK|iM+!~8tvxx!|4_)5=-很-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"#0-m!NhCRV,zCf8GbMcj": {
+				"opcode": "control_repeat",
+				"next": "uC2$yZOL1A,1}K-~Syv:",
+				"parent": "DHkKMspihE2Egd)rlFHn",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "nDuGux+B;$5;}ik,{LEi"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"nDuGux+B;$5;}ik,{LEi": {
+				"opcode": "data_setvariableto",
+				"next": "+KdaJDPx2NJG(.Xn!yNg",
+				"parent": "#0-m!NhCRV,zCf8GbMcj",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["好", "oK|iM+!~8tvxx!|4_)5=-好-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"+KdaJDPx2NJG(.Xn!yNg": {
+				"opcode": "control_repeat",
+				"next": "py|i1tv?sH!}k:EQ.;a1",
+				"parent": "nDuGux+B;$5;}ik,{LEi",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "(a|e-)PKo;9j$$NNsKO="]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"(a|e-)PKo;9j$$NNsKO=": {
+				"opcode": "data_setvariableto",
+				"next": "Sfp23M28|Ho9v)*E2Xm^",
+				"parent": "+KdaJDPx2NJG(.Xn!yNg",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["玩", "oK|iM+!~8tvxx!|4_)5=-玩-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Sfp23M28|Ho9v)*E2Xm^": {
+				"opcode": "control_repeat",
+				"next": "_gD_5og$t$fc0u%a,i[O",
+				"parent": "(a|e-)PKo;9j$$NNsKO=",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "2vS|I/VRum|psxv??ebU"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"2vS|I/VRum|psxv??ebU": {
+				"opcode": "data_setvariableto",
+				"next": "SuN[ZnX`_/l]eHT}taJ`",
+				"parent": "Sfp23M28|Ho9v)*E2Xm^",
+				"inputs": {
+					"VALUE": [1, [10, "0"]]
+				},
+				"fields": {
+					"VARIABLE": ["对", "oK|iM+!~8tvxx!|4_)5=-对-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"SuN[ZnX`_/l]eHT}taJ`": {
+				"opcode": "control_repeat",
+				"next": "Yhe+?lyBKp}8$YM97.zt",
+				"parent": "2vS|I/VRum|psxv??ebU",
+				"inputs": {
+					"TIMES": [1, [6, "10"]],
+					"SUBSTACK": [2, "*DAs^3AXl^E(K2I[!gb#"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"nHpqINyid(GEly]h@-*c": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": "*DAs^3AXl^E(K2I[!gb#",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["对", "oK|iM+!~8tvxx!|4_)5=-对-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Yhe+?lyBKp}8$YM97.zt": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": "SuN[ZnX`_/l]eHT}taJ`",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["玩", "oK|iM+!~8tvxx!|4_)5=-玩-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"_gD_5og$t$fc0u%a,i[O": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": "Sfp23M28|Ho9v)*E2Xm^",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["好", "oK|iM+!~8tvxx!|4_)5=-好-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"py|i1tv?sH!}k:EQ.;a1": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": "+KdaJDPx2NJG(.Xn!yNg",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["很", "oK|iM+!~8tvxx!|4_)5=-很-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"uC2$yZOL1A,1}K-~Syv:": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": "#0-m!NhCRV,zCf8GbMcj",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["程", "oK|iM+!~8tvxx!|4_)5=-程-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"V%D3DD/~HT,jb#p33eFA": {
+				"opcode": "data_changevariableby",
+				"next": null,
+				"parent": ")WYFPYO!f_]6}PCaXzKd",
+				"inputs": {
+					"VALUE": [1, [4, "1"]]
+				},
+				"fields": {
+					"VARIABLE": ["编", "oK|iM+!~8tvxx!|4_)5=-编-"]
+				},
+				"shadow": false,
+				"topLevel": false
+			},
+			"dcnC)xh9LZb}~UTACc#h": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": null,
+				"inputs": {
+					"OPERAND1": [2, "uNBrYK~BTvvTHFgf(2%F"],
+					"OPERAND2": [2, "ugis!RxSa(.rUA2^-2+#"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": true,
+				"x": -273,
+				"y": 1183
+			},
+			"uNBrYK~BTvvTHFgf(2%F": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "dcnC)xh9LZb}~UTACc#h",
+				"inputs": {
+					"OPERAND": [2, "/qO#HuHvxz|A=UuDCv)L"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"/qO#HuHvxz|A=UuDCv)L": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "uNBrYK~BTvvTHFgf(2%F",
+				"inputs": {
+					"OPERAND1": [3, [12, "对", "oK|iM+!~8tvxx!|4_)5=-对-"],
+						[10, ""]
+					],
+					"OPERAND2": [1, [10, "0"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"ugis!RxSa(.rUA2^-2+#": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "dcnC)xh9LZb}~UTACc#h",
+				"inputs": {
+					"OPERAND": [2, "~CBQe1uWnsd`)3vQ*De{"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"~CBQe1uWnsd`)3vQ*De{": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "ugis!RxSa(.rUA2^-2+#",
+				"inputs": {
+					"OPERAND1": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[10, ""]
+					],
+					"OPERAND2": [1, [10, "0"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"BTPOsTM,X1R`v)mBhZLX": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "ta2]7)x-EY*+/n)CM||4",
+				"inputs": {
+					"OPERAND1": [2, "n4k]G-S-luXPD:z;}tY@"],
+					"OPERAND2": [2, "K~FuGW3C}a+Che4_`0@a"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"n4k]G-S-luXPD:z;}tY@": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "BTPOsTM,X1R`v)mBhZLX",
+				"inputs": {
+					"OPERAND": [2, "rLiiA(vKqXff`#biN!%p"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"rLiiA(vKqXff`#biN!%p": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "n4k]G-S-luXPD:z;}tY@",
+				"inputs": {
+					"OPERAND1": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "程", "oK|iM+!~8tvxx!|4_)5=-程-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"K~FuGW3C}a+Che4_`0@a": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "BTPOsTM,X1R`v)mBhZLX",
+				"inputs": {
+					"OPERAND": [2, "eV:)-Xu_mMqY!j4b}rg:"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"eV:)-Xu_mMqY!j4b}rg:": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "K~FuGW3C}a+Che4_`0@a",
+				"inputs": {
+					"OPERAND1": [3, [12, "程", "oK|iM+!~8tvxx!|4_)5=-程-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"ta2]7)x-EY*+/n)CM||4": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "n}c9;l^0n.EO{R]3{i0{",
+				"inputs": {
+					"OPERAND1": [2, "BTPOsTM,X1R`v)mBhZLX"],
+					"OPERAND2": [2, "6HCb[C8EQ*X}RfT]Qw-*"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"9SglYDP5%URpw]Pmbf~=": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": null,
+				"inputs": {},
+				"fields": {},
+				"shadow": false,
+				"topLevel": true,
+				"x": -190,
+				"y": 1047
+			},
+			"4NipR[@)4`?}]Qdh7_m#": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "*DAs^3AXl^E(K2I[!gb#",
+				"inputs": {
+					"OPERAND1": [3, "K%l?iUUQzNBi-StDS6u?", [10, ""]],
+					"OPERAND2": [3, "a*EJ~5/PraO6|kj`g~|k", [10, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"K%l?iUUQzNBi-StDS6u?": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "4NipR[@)4`?}]Qdh7_m#",
+				"inputs": {
+					"NUM1": [3, "vm46JYb}*]JQVECSJh6_", [4, ""]],
+					"NUM2": [3, [12, "对", "oK|iM+!~8tvxx!|4_)5=-对-"],
+						[4, "10"]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"vm46JYb}*]JQVECSJh6_": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "K%l?iUUQzNBi-StDS6u?",
+				"inputs": {
+					"NUM1": [3, "NQU@sm1;Nv0oVD7;mQnq", [4, ""]],
+					"NUM2": [3, "8/YjkrnXyYB;y1#1Y;y@", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"NQU@sm1;Nv0oVD7;mQnq": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "vm46JYb}*]JQVECSJh6_",
+				"inputs": {
+					"NUM1": [3, "neaVN3.MlzZIkQ3nGp^I", [4, ""]],
+					"NUM2": [3, "HWO~NDvTpp:(B/UgEuy`", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"neaVN3.MlzZIkQ3nGp^I": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "NQU@sm1;Nv0oVD7;mQnq",
+				"inputs": {
+					"NUM1": [3, "m;D}K~#IBv?|X26YY/Eb", [4, ""]],
+					"NUM2": [3, "C})XGsS4tuS2RI|l7P[X", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"m;D}K~#IBv?|X26YY/Eb": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "neaVN3.MlzZIkQ3nGp^I",
+				"inputs": {
+					"NUM1": [3, "8n0N{]=/u*UGr95J{F5q", [4, ""]],
+					"NUM2": [3, "nCbbn!VRv},U9_aMvwlq", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"8n0N{]=/u*UGr95J{F5q": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "m;D}K~#IBv?|X26YY/Eb",
+				"inputs": {
+					"NUM1": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "10000"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"nCbbn!VRv},U9_aMvwlq": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "m;D}K~#IBv?|X26YY/Eb",
+				"inputs": {
+					"NUM1": [3, [12, "程", "oK|iM+!~8tvxx!|4_)5=-程-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "1000"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"C})XGsS4tuS2RI|l7P[X": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "neaVN3.MlzZIkQ3nGp^I",
+				"inputs": {
+					"NUM1": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "100"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"HWO~NDvTpp:(B/UgEuy`": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "NQU@sm1;Nv0oVD7;mQnq",
+				"inputs": {
+					"NUM1": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "10"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"8/YjkrnXyYB;y1#1Y;y@": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "vm46JYb}*]JQVECSJh6_",
+				"inputs": {
+					"NUM1": [3, [12, "玩", "oK|iM+!~8tvxx!|4_)5=-玩-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "1"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"a*EJ~5/PraO6|kj`g~|k": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "4NipR[@)4`?}]Qdh7_m#",
+				"inputs": {
+					"NUM1": [3, "I|5jjZ7I|XXQXDIB%_!{", [4, ""]],
+					"NUM2": [3, "04[uI9Yr2k9=i|$mFdBw", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"I|5jjZ7I|XXQXDIB%_!{": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "a*EJ~5/PraO6|kj`g~|k",
+				"inputs": {
+					"NUM1": [3, "Hf0}p:JWZtlF,Sv!xJQ}", [4, ""]],
+					"NUM2": [3, ")Ow?jtu]Z9,u-Eij2!@3", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Hf0}p:JWZtlF,Sv!xJQ}": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "I|5jjZ7I|XXQXDIB%_!{",
+				"inputs": {
+					"NUM1": [3, "AOV8BrVG{W%0^9oa*osK", [4, ""]],
+					"NUM2": [3, "o^e~j@Nik9?liS+jD#{/", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"AOV8BrVG{W%0^9oa*osK": {
+				"opcode": "operator_add",
+				"next": null,
+				"parent": "Hf0}p:JWZtlF,Sv!xJQ}",
+				"inputs": {
+					"NUM1": [3, "%0qT,iU`8B=~,p+o0!pu", [4, ""]],
+					"NUM2": [3, "`^tnxUoI;wn(tOsL:gP;", [4, ""]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"%0qT,iU`8B=~,p+o0!pu": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "AOV8BrVG{W%0^9oa*osK",
+				"inputs": {
+					"NUM1": [3, [12, "玩", "oK|iM+!~8tvxx!|4_)5=-玩-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "10000"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"`^tnxUoI;wn(tOsL:gP;": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "AOV8BrVG{W%0^9oa*osK",
+				"inputs": {
+					"NUM1": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "1000"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"o^e~j@Nik9?liS+jD#{/": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "Hf0}p:JWZtlF,Sv!xJQ}",
+				"inputs": {
+					"NUM1": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "100"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			")Ow?jtu]Z9,u-Eij2!@3": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "I|5jjZ7I|XXQXDIB%_!{",
+				"inputs": {
+					"NUM1": [3, [12, "程", "oK|iM+!~8tvxx!|4_)5=-程-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "10"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"04[uI9Yr2k9=i|$mFdBw": {
+				"opcode": "operator_multiply",
+				"next": null,
+				"parent": "a*EJ~5/PraO6|kj`g~|k",
+				"inputs": {
+					"NUM1": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[4, "10"]
+					],
+					"NUM2": [1, [4, "1"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"*DAs^3AXl^E(K2I[!gb#": {
+				"opcode": "control_if",
+				"next": "nHpqINyid(GEly]h@-*c",
+				"parent": "SuN[ZnX`_/l]eHT}taJ`",
+				"inputs": {
+					"CONDITION": [2, "4NipR[@)4`?}]Qdh7_m#"],
+					"SUBSTACK": [2, "n}c9;l^0n.EO{R]3{i0{"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"]$j.AhFG_)6wz*6w+d_k": {
+				"opcode": "looks_sayforsecs",
+				"next": null,
+				"parent": null,
+				"inputs": {
+					"MESSAGE": [1, [10, "找到一组解！"]],
+					"SECS": [1, [4, "2"]]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": true,
+				"x": -118,
+				"y": 1447
+			},
+			";n/vlTdjrJa#c+pLH87f": {
+				"opcode": "event_whenflagclicked",
+				"next": "{Afq|W0}KW2V+u4gLXw/",
+				"parent": null,
+				"inputs": {},
+				"fields": {},
+				"shadow": false,
+				"topLevel": true,
+				"x": 306,
+				"y": 803
+			},
+			"6HCb[C8EQ*X}RfT]Qw-*": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "ta2]7)x-EY*+/n)CM||4",
+				"inputs": {
+					"OPERAND1": [2, "Fj7U(JjyGiY#0RS)-sPq"],
+					"OPERAND2": [2, "Quu%XuZu`:qy;4#}m+P8"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Fj7U(JjyGiY#0RS)-sPq": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "6HCb[C8EQ*X}RfT]Qw-*",
+				"inputs": {
+					"OPERAND": [2, "L5zc1/SE)$$Wt-e@kX;f"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"L5zc1/SE)$$Wt-e@kX;f": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "Fj7U(JjyGiY#0RS)-sPq",
+				"inputs": {
+					"OPERAND1": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Quu%XuZu`:qy;4#}m+P8": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "6HCb[C8EQ*X}RfT]Qw-*",
+				"inputs": {
+					"OPERAND": [2, "^8MYE?]/(Iczpz.pOmj8"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"^8MYE?]/(Iczpz.pOmj8": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "Quu%XuZu`:qy;4#}m+P8",
+				"inputs": {
+					"OPERAND1": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "玩", "oK|iM+!~8tvxx!|4_)5=-玩-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"n}c9;l^0n.EO{R]3{i0{": {
+				"opcode": "control_if",
+				"next": null,
+				"parent": "*DAs^3AXl^E(K2I[!gb#",
+				"inputs": {
+					"CONDITION": [2, "ta2]7)x-EY*+/n)CM||4"],
+					"SUBSTACK": [2, "pJm6%%5=2Ar=nZPiR|fB"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"pJm6%%5=2Ar=nZPiR|fB": {
+				"opcode": "control_if",
+				"next": null,
+				"parent": "n}c9;l^0n.EO{R]3{i0{",
+				"inputs": {
+					"CONDITION": [2, "8ocUY`0=v/DPb=UuGde5"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"8ocUY`0=v/DPb=UuGde5": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "pJm6%%5=2Ar=nZPiR|fB",
+				"inputs": {
+					"OPERAND1": [2, "184|Y`}og:=9`lmZv#M("],
+					"OPERAND2": [2, "QfVVa1gQ4YH)gImHm,Fo"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"184|Y`}og:=9`lmZv#M(": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "8ocUY`0=v/DPb=UuGde5",
+				"inputs": {
+					"OPERAND1": [2, "0zx0]Fi(5WhL{y7E8J`."],
+					"OPERAND2": [2, "(M9qnTi({-^3qP7^$,pJ"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"0zx0]Fi(5WhL{y7E8J`.": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "184|Y`}og:=9`lmZv#M(",
+				"inputs": {
+					"OPERAND": [2, "e-}#eY!!vB(/s/-+LBx?"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"e-}#eY!!vB(/s/-+LBx?": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "0zx0]Fi(5WhL{y7E8J`.",
+				"inputs": {
+					"OPERAND1": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"(M9qnTi({-^3qP7^$,pJ": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "184|Y`}og:=9`lmZv#M(",
+				"inputs": {
+					"OPERAND": [2, "B4!:J[]Lof*{Xg!%UNeG"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"B4!:J[]Lof*{Xg!%UNeG": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "(M9qnTi({-^3qP7^$,pJ",
+				"inputs": {
+					"OPERAND1": [3, [12, "程", "oK|iM+!~8tvxx!|4_)5=-程-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"QfVVa1gQ4YH)gImHm,Fo": {
+				"opcode": "operator_and",
+				"next": null,
+				"parent": "8ocUY`0=v/DPb=UuGde5",
+				"inputs": {
+					"OPERAND1": [2, "Vk)XaYb]$GR^?e~Z,`wK"],
+					"OPERAND2": [2, "RprTYx/FV{7G)?emk*yZ"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"Vk)XaYb]$GR^?e~Z,`wK": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "QfVVa1gQ4YH)gImHm,Fo",
+				"inputs": {
+					"OPERAND": [2, "~~,Q3%hMJ;^T;!h@F)Ky"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"~~,Q3%hMJ;^T;!h@F)Ky": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "Vk)XaYb]$GR^?e~Z,`wK",
+				"inputs": {
+					"OPERAND1": [3, [12, "很", "oK|iM+!~8tvxx!|4_)5=-很-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "玩", "oK|iM+!~8tvxx!|4_)5=-玩-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"RprTYx/FV{7G)?emk*yZ": {
+				"opcode": "operator_not",
+				"next": null,
+				"parent": "QfVVa1gQ4YH)gImHm,Fo",
+				"inputs": {
+					"OPERAND": [2, "B8kS$:Fyg!,:VoseR#e~"]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			},
+			"B8kS$:Fyg!,:VoseR#e~": {
+				"opcode": "operator_equals",
+				"next": null,
+				"parent": "RprTYx/FV{7G)?emk*yZ",
+				"inputs": {
+					"OPERAND1": [3, [12, "好", "oK|iM+!~8tvxx!|4_)5=-好-"],
+						[10, ""]
+					],
+					"OPERAND2": [3, [12, "编", "oK|iM+!~8tvxx!|4_)5=-编-"],
+						[10, ""]
+					]
+				},
+				"fields": {},
+				"shadow": false,
+				"topLevel": false
+			}
+		},
+		"comments": {
+			"/Glj033E@u/}u7ZPWqaq": {
+				"blockId": null,
+				"x": 1587,
+				"y": 1179,
+				"width": 225,
+				"height": 440,
+				"minimized": true,
+				"text": "可以添加的条件：\n编≠程\n程≠很\n很≠好\n好≠玩\n玩≠对\n对≠编\n编≠很\n程≠玩\n很≠对\n……"
+			}
+		},
+		"currentCostume": 0,
+		"costumes": [{
+			"assetId": "0e5aa5921121354b6db104725556e692",
+			"name": "bear1-a",
+			"bitmapResolution": 1,
+			"md5ext": "0e5aa5921121354b6db104725556e692.svg",
+			"dataFormat": "svg",
+			"rotationCenterX": 55.976961294558635,
+			"rotationCenterY": 92.6093
+		}, {
+			"assetId": "ab4e87878df079a47d082ca92065d466",
+			"name": "bear1-b",
+			"bitmapResolution": 1,
+			"md5ext": "ab4e87878df079a47d082ca92065d466.svg",
+			"dataFormat": "svg",
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		}],
+		"sounds": [{
+			"assetId": "c09455ee9da0e7eeead42d4e73c2555d",
+			"name": "plunge",
+			"dataFormat": "wav",
+			"format": "",
+			"rate": 44100,
+			"sampleCount": 89600,
+			"md5ext": "c09455ee9da0e7eeead42d4e73c2555d.wav"
+		}],
+		"volume": 100,
+		"layerOrder": 2,
+		"visible": true,
+		"x": 151,
+		"y": -91,
+		"size": 80,
+		"direction": 90,
+		"draggable": false,
+		"rotationStyle": "all around"
+	}, {
+		"isStage": true,
+		"name": "Stage",
+		"variables": {
+			"oK|iM+!~8tvxx!|4_)5=-编-": ["编", 3],
+			"oK|iM+!~8tvxx!|4_)5=-程-": ["程", "0"],
+			"oK|iM+!~8tvxx!|4_)5=-很-": ["很", 8],
+			"oK|iM+!~8tvxx!|4_)5=-好-": ["好", 2],
+			"oK|iM+!~8tvxx!|4_)5=-玩-": ["玩", 1],
+			"oK|iM+!~8tvxx!|4_)5=-对-": ["对", 8]
+		},
+		"lists": {},
+		"broadcasts": {},
+		"blocks": {},
+		"comments": {},
+		"currentCostume": 0,
+		"costumes": [{
+			"assetId": "26563f5d78af54d6ae3b9afd00bc58d4",
+			"name": "背景1",
+			"bitmapResolution": 2,
+			"md5ext": "26563f5d78af54d6ae3b9afd00bc58d4.png",
+			"dataFormat": "png",
+			"rotationCenterX": 480,
+			"rotationCenterY": 360
+		}],
+		"sounds": [{
+			"assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
+			"name": "pop音效",
+			"dataFormat": "wav",
+			"format": "",
+			"rate": 44100,
+			"sampleCount": 1032,
+			"md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
+		}],
+		"volume": 100,
+		"layerOrder": 1,
+		"tempo": 60,
+		"videoTransparency": 50,
+		"videoState": "off",
+		"textToSpeechLanguage": null
+	}],
+	"monitors": [{
+		"id": "oK|iM+!~8tvxx!|4_)5=-编-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "编"
+		},
+		"spriteName": null,
+		"value": "0",
+		"width": 0,
+		"height": 0,
+		"x": 28,
+		"y": 65,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}, {
+		"id": "oK|iM+!~8tvxx!|4_)5=-程-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "程"
+		},
+		"spriteName": null,
+		"value": 4,
+		"width": 0,
+		"height": 0,
+		"x": 113,
+		"y": 65,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}, {
+		"id": "oK|iM+!~8tvxx!|4_)5=-很-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "很"
+		},
+		"spriteName": null,
+		"value": 1,
+		"width": 0,
+		"height": 0,
+		"x": 195,
+		"y": 65,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}, {
+		"id": "oK|iM+!~8tvxx!|4_)5=-好-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "好"
+		},
+		"spriteName": null,
+		"value": 4,
+		"width": 0,
+		"height": 0,
+		"x": 277,
+		"y": 67,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}, {
+		"id": "oK|iM+!~8tvxx!|4_)5=-玩-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "玩"
+		},
+		"spriteName": null,
+		"value": "0",
+		"width": 0,
+		"height": 0,
+		"x": 362,
+		"y": 67,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}, {
+		"id": "oK|iM+!~8tvxx!|4_)5=-对-",
+		"mode": "default",
+		"opcode": "data_variable",
+		"params": {
+			"VARIABLE": "对"
+		},
+		"spriteName": null,
+		"value": 1,
+		"width": 0,
+		"height": 0,
+		"x": 362,
+		"y": 119,
+		"visible": true,
+		"sliderMin": 0,
+		"sliderMax": 100,
+		"isDiscrete": true
+	}],
+	"extensions": [],
+	"meta": {
+		"semver": "3.0.0",
+		"vm": "0.2.0-prerelease.20210120142104",
+		"agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75"
+	}
+}

@@ -1,0 +1,26 @@
+
+  }, {
+    id: '809d9b47347a6af2860e7a3a35bce057',
+    assetType: 'ImageVector',
+    dataFormat: 'SVG',
+    data: encoder.encode(_809d9b47347a6af2860e7a3a35bce057_default.a)
+  }, {
+    id: '920f14335615fff9b8c55fccb8971984',
+    assetType: 'ImageVector',
+    dataFormat: 'SVG',
+    data: encoder.encode(_920f14335615fff9b8c55fccb8971984_default.a)
+  }, {
+    id: '34a175600dc009a521eb46fdbbbeeb67',
+    assetType: 'ImageVector',
+    dataFormat: 'SVG',
+    data: encoder.encode(_34a175600dc009a521eb46fdbbbeeb67_default.a)
+  }, {
+    id: '45de34b47a2ce22f6f5d28bb35a44ff5',
+    assetType: 'ImageVector',
+    dataFormat: 'SVG',
+    data: encoder.encode(_45de34b47a2ce22f6f5d28bb35a44ff5_default.a)
+  }, {
+    id: '83a9787d4cb6f3b7632b4ddfebf74367',
+    assetType: 'Sound',
+    dataFormat: 'WAV',
+    data: new Uint8Array(_83a9787d4cb6f3b7632b4ddfebf74367_default.a)

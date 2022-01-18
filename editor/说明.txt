@@ -1,0 +1,131 @@
+投屏功能
+
+   1.教师向舞台发送通知
+
+      var strInvitation="[\"INVITATION\",\"\"]";
+      var msg =  { 'content': strInvitation , 'type': 'user'  ,'to':'Stage'};
+      sendMsgPlay(msg);
+
+   1.1舞台收到消息后，清理舞台
+
+         for(var i=oGUI.props.vm.runtime.targets.length-1;i>0 ;i--){			//初始化，清空所有角色
+           if(oGUI.props.vm.runtime.targets[i].isStage!=true){
+              oGUI.props.vm.deleteSprite(oGUI.props.vm.runtime.targets[i].id);
+           }
+         }
+         arrPlayer.length=0;								//清空当前项目选手名单
+         arrPlayerDelayed.length=0;							//清空当前项目正在添加的选手名单
+         arrPlayerCostume.length=0;							//清空当前项目中选手的造型记录
+         bCodeViewableFile = true;							//强制置播放模式
+         updateScreenMode();
+
+
+   2.教师向学生发送邀请
+
+      var strInvitation="[\"INVITATION\",\"\"]";
+      var msg =  { 'content': strInvitation , 'type': 'user'  ,'to':学生名};
+      sendMsgPlay(msg);
+
+   2.1学生收到邀请
+         bInvited=true;							//已被邀请，可以在control.js:updateNP()里向Stage发送数据了。
+         oGUI.props.vm.runtime.stopAll();
+
+         //保存当前角色所有造型到服务器
+         var arrCostumes=oGUI.props.vm.runtime.targets[1].getCostumes();
+         for(i=0;i<arrCostumes.length;i++)
+         {
+            $.post("saveSprite.php?t=" + Math.random(), { "S":arrCostumes[i].asset.encodeDataURI(),"N":arrCostumes[i].md5}, function (data) {});
+         }
+	 //向舞台注册当前用户
+         var content="[\"NP\",\""+uname+
+	  	          "\",[0,0,0,0],\""+  oGUI.props.vm.runtime.targets[1].getCurrentCostume().md5+"\"]";
+         var msg = {'content':content, 'type': 'user', 'to':'Stage'};
+         sendMsgPlay(msg);
+
+    2.2 Scratch在发生位移时上报信息（scratch-gui.js）
+ 	{
+	    key: "moveSteps",
+	    value: function moveSteps(args, util) {
+	      var steps = Cast.toNumber(args.STEPS);
+	      var radians = MathUtil.degToRad(90 - util.target.direction);
+	      var dx = steps * Math.cos(radians);
+	      var dy = steps * Math.sin(radians);
+	      util.target.setXY(util.target.x + dx, util.target.y + dy);
+	      if(bInvited)  updateNP(util.target.x+dx,util.target.y+dy,util.target.direction,util.target.size,util.target.sprite.costumes[util.target.currentCostume].md5,util.target.currentCostume);    }
+	 }, 
+     2.3 学生端向舞台上报当前角色状态
+	function  updateNP(x,y,r,s,f,c)
+	{
+	   if(bInvited==true)//已被邀请，可以发送数据。
+	   {
+	      var content="[\"NP\",\""+uname+"\",["+x+","+y+","+r+","+s+"],\""+f+"\","+c+"]";	//发送数据：当前用户名，(X坐标，Y坐标，方向，大小，造型文件，造型编号)
+	      var msg = {'content':content, 'type': 'user', 'to':'Stage'};	//定向发送到Stage
+	      sendMsgPlay(msg);
+	   }
+	}
+
+    2.4 舞台处理NP命令
+      case "NP"://投屏命令
+
+         var nId=arrPlayer.indexOf(jsonCOMMAND[1]);//indexOf()如果找不到，返回-1。
+
+         if(nId>-1)//在当前项目中已经存在该选手，则直接更新选手的坐标、方向和大小数据。
+         {
+             var nCID=parseInt(jsonCOMMAND[4])+1;
+             if(arrPlayerCostume[nId]==undefined)
+             {
+                arrPlayerCostume[nId]=new Array(nCID);
+                arrPlayerCostume[nId][nCID]=new Array(jsonCOMMAND[3]);
+                var obj={"name":jsonCOMMAND[1]+"_"+nCID,"tags":["people","drawing"],"isStage":false,"variables":{},"costumes":[{"assetId":jsonCOMMAND[3].substr(0,33),"name":"Car","bitmapResolution":1,"md5ext":jsonCOMMAND[3],"dataFormat":"png","rotationCenterX":100,"rotationCenterY":50}],"sounds":[],"blocks":{}};
+                oGUI.props.vm.addCostume(jsonCOMMAND[3],obj,oGUI.props.vm.runtime.targets[nId].id,1);
+             }
+             else if(arrPlayerCostume[nId][nCID]==undefined)
+             {
+                arrPlayerCostume[nId][nCID]=new Array(jsonCOMMAND[3]);
+                var obj={"name":jsonCOMMAND[1]+"_"+nCID,"tags":["people","drawing"],"isStage":false,"variables":{},"costumes":[{"assetId":jsonCOMMAND[3].substr(0,33),"name":"Car","bitmapResolution":1,"md5ext":jsonCOMMAND[3],"dataFormat":"png","rotationCenterX":100,"rotationCenterY":50}],"sounds":[],"blocks":{}};
+                oGUI.props.vm.addCostume(jsonCOMMAND[3],obj,oGUI.props.vm.runtime.targets[nId].id,1);
+             }
+         
+             oGUI.props.vm.runtime.targets[nId].setXY(jsonCOMMAND[2][0],jsonCOMMAND[2][1]);	//设置角色坐标
+             oGUI.props.vm.runtime.targets[nId].setDirection(jsonCOMMAND[2][2]);		//设置角色方向
+             oGUI.props.vm.runtime.targets[nId].setSize(jsonCOMMAND[2][3]);			//设置角色大小
+             oGUI.props.vm.runtime.targets[nId].setCostume(nCID);				//设置角色造型
+
+         }
+         else//如果找不到，存在三种情况：0.当前的arrPlayer数据非最新；1.该选手为第一次出现，需要执行添加操作；2.该选手正在被添加中。
+         {
+            for(var i=0;i<oGUI.props.vm.runtime.targets.length ;i++){			//为确保arrPlayer中为最新数据，重新更新一下。
+               arrPlayer[i]=oGUI.props.vm.runtime.targets[i].getName();			//由于添加角色操作，用时较长，且无回调消息可获取，所以只能在要用前，主动更新一下。
+            }
+
+            nId=arrPlayer.indexOf(jsonCOMMAND[1]);					//再次查询一下当前项目中是否有该选手
+
+            if(nId>-1)//该选手已经成功添加，则直接更新选手的坐标、方向和大小数据。
+            {
+               oGUI.props.vm.runtime.targets[nId].setXY(jsonCOMMAND[2][0],jsonCOMMAND[2][1]);
+               oGUI.props.vm.runtime.targets[nId].setDirection(jsonCOMMAND[2][2]);
+               oGUI.props.vm.runtime.targets[nId].setSize(jsonCOMMAND[2][3]);
+            }
+            else//没找到，还剩两种情况
+            {
+               if(arrPlayerDelayed.indexOf(jsonCOMMAND[1])==-1)//该选手的确没有被执行过添加操作，则添加。
+               {
+                  arrPlayerDelayed.push(jsonCOMMAND[1]);				//正被插入的选手，数据可以持续保存。删除操作在收到STOPALL或INVITATION消息后执行。
+                  //小车造型
+                  //var objSprite = "{\"name\":\""+ jsonCOMMAND[1] +"\",\"tags\":[],\"isStage\":false,\"variables\":{},\"costumes\":[{\"assetId\":\"7d25141fd5d55013c14982eebf810e29\",\"name\":\""+jsonCOMMAND[1]+"\",\"bitmapResolution\":1,\"md5ext\":\"7d25141fd5d55013c14982eebf810e29.png\",\"dataFormat\":\"png\",\"rotationCenterX\":100,\"rotationCenterY\":50}],\"sounds\":[],\"blocks\":{\"Zo(K~r:BL_4^[*3E8dBD\":{\"opcode\":\"event_whenflagclicked\",\"next\":\"/6H7Ofvp^.SD)?H0wPt)\",\"parent\":null,\"inputs\":{},\"fields\":{},\"shadow\":false,\"topLevel\":true,\"x\":22,\"y\":69},\"/6H7Ofvp^.SD)?H0wPt)\":{\"opcode\":\"looks_say\",\"next\":null,\"parent\":\"Zo(K~r:BL_4^[*3E8dBD\",\"inputs\":{\"MESSAGE\":[1,[10,\"" + jsonCOMMAND[1] + "\"]]}}}}";
+                  //选手自定义造型+显示姓名
+                  //var objSprite = "{\"name\":\""+ jsonCOMMAND[1] +"\",\"tags\":[],\"isStage\":false,\"variables\":{},\"costumes\":[{\"assetId\":\""+ jsonCOMMAND[3].substr(0,32) +"\",\"name\":\""+jsonCOMMAND[1]+"\",\"bitmapResolution\":1,\"md5ext\":\""+ jsonCOMMAND[3] +"\",\"dataFormat\":\"png\",\"rotationCenterX\":100,\"rotationCenterY\":50}],\"sounds\":[],\"blocks\":{\"Zo(K~r:BL_4^[*3E8dBD\":{\"opcode\":\"event_whenflagclicked\",\"next\":\"/6H7Ofvp^.SD)?H0wPt)\",\"parent\":null,\"inputs\":{},\"fields\":{},\"shadow\":false,\"topLevel\":true,\"x\":22,\"y\":69},\"/6H7Ofvp^.SD)?H0wPt)\":{\"opcode\":\"looks_say\",\"next\":null,\"parent\":\"Zo(K~r:BL_4^[*3E8dBD\",\"inputs\":{\"MESSAGE\":[1,[10,\"" + jsonCOMMAND[1] + "\"]]}}}}";
+
+                  //选手自定义造型+显示姓名+运动计时
+                  var objSprite = "{\"name\":\""+ jsonCOMMAND[1] +"\",\"tags\":[],\"isStage\":false,\"variables\":{},\"costumes\":[{\"assetId\":\""+ jsonCOMMAND[3].substr(0,32) +"\",\"name\":\""+jsonCOMMAND[1]+"\",\"bitmapResolution\":1,\"md5ext\":\""+ jsonCOMMAND[3] +"\",\"dataFormat\":\"png\",\"rotationCenterX\":100,\"rotationCenterY\":50}],\"sounds\":[],\"variables\":{\"^DoYu47@*@:68:}|8I}s\":[\"t1\",406.87],\"SUgR:Xx!(`MMp,1yirzm\":[\"t2\",0]},\"blocks\":{\"Zo(K~r:BL_4^[*3E8dBD\":{\"opcode\":\"event_whenflagclicked\",\"next\":\"/6H7Ofvp^.SD)?H0wPt)\",\"parent\":null,\"inputs\":{},\"fields\":{},\"shadow\":false,\"topLevel\":true,\"x\":-858,\"y\":-457},\"/6H7Ofvp^.SD)?H0wPt)\":{\"opcode\":\"looks_say\",\"next\":\"FO#8.eB5g-oP#-cqhXv5\",\"parent\":\"Zo(K~r:BL_4^[*3E8dBD\",\"inputs\":{\"MESSAGE\":[1,[10,\""+jsonCOMMAND[1]+"\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"@%MrjFV}049qC=Nj3^mh\":{\"opcode\":\"control_forever\",\"next\":null,\"parent\":\"p,fn0imj[$qVj0a*j0KN\",\"inputs\":{\"SUBSTACK\":[2,\":meNgu/Jg(Ev0L*HdS=V\"]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\":meNgu/Jg(Ev0L*HdS=V\":{\"opcode\":\"control_if\",\"next\":\"}rBGcmP_d$COOey6}50Q\",\"parent\":\"@%MrjFV}049qC=Nj3^mh\",\"inputs\":{\"CONDITION\":[2,\":p=c3_W3QJVo|)oymdHv\"],\"SUBSTACK\":[2,\"jQ`n7-8Vw9o.vF/Rk6R)\"]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\":p=c3_W3QJVo|)oymdHv\":{\"opcode\":\"sensing_touchingcolor\",\"next\":null,\"parent\":\":meNgu/Jg(Ev0L*HdS=V\",\"inputs\":{\"COLOR\":[1,[9,\"#3b10ff\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"jQ`n7-8Vw9o.vF/Rk6R)\":{\"opcode\":\"data_setvariableto\",\"next\":null,\"parent\":\":meNgu/Jg(Ev0L*HdS=V\",\"inputs\":{\"VALUE\":[3,\"7(Fk8GuD.gOcT)d3[;*+\",[10,\"0\"]]},\"fields\":{\"VARIABLE\":[\"t1\",\"^DoYu47@*@:68:}|8I}s\"]},\"shadow\":false,\"topLevel\":false},\"7(Fk8GuD.gOcT)d3[;*+\":{\"opcode\":\"sensing_timer\",\"next\":null,\"parent\":\"jQ`n7-8Vw9o.vF/Rk6R)\",\"inputs\":{},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"}rBGcmP_d$COOey6}50Q\":{\"opcode\":\"control_if\",\"next\":null,\"parent\":\":meNgu/Jg(Ev0L*HdS=V\",\"inputs\":{\"CONDITION\":[2,\"cvj?m6qVk/~kYQLMB7Cc\"],\"SUBSTACK\":[2,\"*iO!tF?;N%w3f_O#PGF!\"]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"cvj?m6qVk/~kYQLMB7Cc\":{\"opcode\":\"sensing_touchingcolor\",\"next\":null,\"parent\":\"}rBGcmP_d$COOey6}50Q\",\"inputs\":{\"COLOR\":[1,[9,\"#ff0000\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"*iO!tF?;N%w3f_O#PGF!\":{\"opcode\":\"data_setvariableto\",\"next\":\"Y[nEjmKTn^wg?uMC2kB2\",\"parent\":\"}rBGcmP_d$COOey6}50Q\",\"inputs\":{\"VALUE\":[3,\"V!N(W4H@ui;m6%z+B*dh\",[10,\"0\"]]},\"fields\":{\"VARIABLE\":[\"t1\",\"^DoYu47@*@:68:}|8I}s\"]},\"shadow\":false,\"topLevel\":false},\"V!N(W4H@ui;m6%z+B*dh\":{\"opcode\":\"operator_subtract\",\"next\":null,\"parent\":\"*iO!tF?;N%w3f_O#PGF!\",\"inputs\":{\"NUM1\":[3,\"d@cIcf6JIWE}!bv;q9O?\",[4,\"\"]],\"NUM2\":[3,[12,\"t1\",\"^DoYu47@*@:68:}|8I}s\"],[4,\"\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"d@cIcf6JIWE}!bv;q9O?\":{\"opcode\":\"sensing_timer\",\"next\":null,\"parent\":\"V!N(W4H@ui;m6%z+B*dh\",\"inputs\":{},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"d*Y%Pwk^XtFX;Ng~5e`u\":{\"opcode\":\"looks_say\",\"next\":null,\"parent\":\"I.ce1Y,!t2eDxWG@C;gO\",\"inputs\":{\"MESSAGE\":[3,\"NgEfX^.S*4xq)Z`VR[e#\",[10,\"你好！\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"Y[nEjmKTn^wg?uMC2kB2\":{\"opcode\":\"control_if\",\"next\":null,\"parent\":\"*iO!tF?;N%w3f_O#PGF!\",\"inputs\":{\"SUBSTACK\":[2,\"I.ce1Y,!t2eDxWG@C;gO\"],\"CONDITION\":[2,\"+Z|BUbKx]a:8)P4OagwV\"]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"+Z|BUbKx]a:8)P4OagwV\":{\"opcode\":\"operator_equals\",\"next\":null,\"parent\":\"Y[nEjmKTn^wg?uMC2kB2\",\"inputs\":{\"OPERAND1\":[3,[12,\"t2\",\"SUgR:Xx!(`MMp,1yirzm\"],[10,\"\"]],\"OPERAND2\":[1,[10,\"0\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false},\"I.ce1Y,!t2eDxWG@C;gO\":{\"opcode\":\"data_setvariableto\",\"next\":\"d*Y%Pwk^XtFX;Ng~5e`u\",\"parent\":\"Y[nEjmKTn^wg?uMC2kB2\",\"inputs\":{\"VALUE\":[3,[12,\"t1\",\"^DoYu47@*@:68:}|8I}s\"],[10,\"0\"]]},\"fields\":{\"VARIABLE\":[\"t2\",\"SUgR:Xx!(`MMp,1yirzm\"]},\"shadow\":false,\"topLevel\":false},\"FO#8.eB5g-oP#-cqhXv5\":{\"opcode\":\"data_setvariableto\",\"next\":\"p,fn0imj[$qVj0a*j0KN\",\"parent\":\"/6H7Ofvp^.SD)?H0wPt)\",\"inputs\":{\"VALUE\":[1,[10,\"0\"]]},\"fields\":{\"VARIABLE\":[\"t1\",\"^DoYu47@*@:68:}|8I}s\"]},\"shadow\":false,\"topLevel\":false},\"p,fn0imj[$qVj0a*j0KN\":{\"opcode\":\"data_setvariableto\",\"next\":\"@%MrjFV}049qC=Nj3^mh\",\"parent\":\"FO#8.eB5g-oP#-cqhXv5\",\"inputs\":{\"VALUE\":[1,[10,\"0\"]]},\"fields\":{\"VARIABLE\":[\"t2\",\"SUgR:Xx!(`MMp,1yirzm\"]},\"shadow\":false,\"topLevel\":false},\"NgEfX^.S*4xq)Z`VR[e#\":{\"opcode\":\"operator_join\",\"next\":null,\"parent\":\"d*Y%Pwk^XtFX;Ng~5e`u\",\"inputs\":{\"STRING1\":[1,[10,\""+jsonCOMMAND[1]+"：\"]],\"STRING2\":[3,[12,\"t2\",\"SUgR:Xx!(`MMp,1yirzm\"],[10,\""+jsonCOMMAND[1]+"\"]]},\"fields\":{},\"shadow\":false,\"topLevel\":false}}}";
+
+                  oGUI.props.vm.addSprite(objSprite);					//当前插入一辆小车的角色
+                  oGUI.props.vm.runtime.targets[nId].setXY(jsonCOMMAND[2][0],jsonCOMMAND[2][1]);//同步更新坐标
+                  oGUI.props.vm.runtime.targets[nId].setDirection(jsonCOMMAND[2][2]);		//同步更新方向
+                  oGUI.props.vm.runtime.targets[nId].setSize(jsonCOMMAND[2][3]);		//同步更新大小
+               }
+               //else //该选手处于正在插入的状态，只需要等待。
+               //{}
+            }
+         }
+         break;

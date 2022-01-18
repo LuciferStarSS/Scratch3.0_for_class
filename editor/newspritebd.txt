@@ -1,0 +1,12 @@
+{\\\"name\\\":\\\"Raceroad\\\",\\\"tags\\\":[\\\"outdoors\\\"],\\\"assetId\\\":\\\"d35120a611f99b1ad29465141f4e1324\\\",\\\"bitmapResolution\\\":2,\\\"dataFormat\\\":\\\"png\\\",\\\"md5ext\\\":\\\"d35120a611f99b1ad29465141f4e1324.png\\\",\\\"rotationCenterX\\\":480,\\\"rotationCenterY\\\":360},
+
+
+,{\\\"name\\\":\\\"Raceroad\\\",\\\"tags\\\":[\\\"outdoors\\\"],\\\"assetId\\\":\\\"d35120a611f99b1ad29465141f4e1324\\\",\\\"bitmapResolution\\\":2,\\\"dataFormat\\\":\\\"png\\\",\\\"md5ext\\\":\\\"d35120a611f99b1ad29465141f4e1324.png\\\",\\\"rotationCenterX\\\":480,\\\"rotationCenterY\\\":360}
+
+
+
+{\\\"name\\\":\\\"Car\\\",\\\"tags\\\":[\\\"people\\\",\\\"fantasy\\\"],\\\"assetId\\\":\\\"f3bc2aff2e7363806e43d8dabdaed3eb\\\",\\\"bitmapResolution\\\":1,\\\"dataFormat\\\":\\\"png\\\",\\\"md5ext\\\":\\\"f3bc2aff2e7363806e43d8dabdaed3eb.png\\\",\\\"rotationCenterX\\\":31,\\\"rotationCenterY\\\":100},
+
+
+
+{\\\"name\\\":\\\"Car\\\",\\\"tags\\\":[\\\"people\\\",\\\"drawing\\\"],\\\"isStage\\\":false,\\\"variables\\\":{},\\\"costumes\\\":[{\\\"assetId\\\":\\\"f3bc2aff2e7363806e43d8dabdaed3eb\\\",\\\"name\\\":\\\"Car\\\",\\\"bitmapResolution\\\":1,\\\"md5ext\\\":\\\"f3bc2aff2e7363806e43d8dabdaed3eb.png\\\",\\\"dataFormat\\\":\\\"png\\\",\\\"rotationCenterX\\\":31,\\\"rotationCenterY\\\":100}],\\\"sounds\\\":[{\\\"assetId\\\":\\\"83a9787d4cb6f3b7632b4ddfebf74367\\\",\\\"name\\\":\\\"pop\\\",\\\"dataFormat\\\":\\\"wav\\\",\\\"format\\\":\\\"\\\",\\\"rate\\\":44100,\\\"sampleCount\\\":1032,\\\"md5ext\\\":\\\"83a9787d4cb6f3b7632b4ddfebf74367.wav\\\"}],\\\"blocks\\\":{}},
