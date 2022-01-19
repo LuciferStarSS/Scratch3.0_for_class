@@ -2512,10 +2512,10 @@ function Answer(str)//学生答题
 <script type="text/javascript">
 
    var uname = "<?php echo $username;?>";
-   var strWebSocketServerURL="ws://<?php echo $WSSERVER;?>:<?php echo (8080+$room);?>";
+   var strWebSocketServerURL="ws://<?php echo $WSSERVER;?>:8081";
    createWebSocket(strWebSocketServerURL);
 
-   var strWebSocketPlayURL="ws://<?php echo $WSSERVER;?>:<?php echo (8090+$room);?>";
+   var strWebSocketPlayURL="ws://<?php echo $WSSERVER;?>:8091";
    initPlay(strWebSocketPlayURL);
 </script>
 

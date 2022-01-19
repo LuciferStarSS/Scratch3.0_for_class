@@ -293,11 +293,13 @@ else{?>
 
    function startInterTimer()
    {
+return;
       timer=setInterval("refreshPage();",5000);
    }
 
    function stopInterTimer()
    {
+return;
       clearTimeout(timer);
    }
 

@@ -443,9 +443,9 @@ function loadBG(n)
 <script type="text/javascript">
 
    var uname = "<?php echo $username;?>";
-   var strWebSocketPlayURL="ws://<?php echo $WSSERVER;?>:<?php echo (8090+$room);?>";
-   //createWebSocketPlay(strWebSocketPlayURL);
-   //initPlay(strWebSocketPlayURL);
+   var strWebSocketPlayURL="ws://<?php echo $WSSERVER;?>:8091";
+   createWebSocketPlay(strWebSocketPlayURL);
+   initPlay(strWebSocketPlayURL);
 
 </script>
 

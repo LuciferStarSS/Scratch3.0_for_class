@@ -479,14 +479,15 @@ statusReceived[uname.msg_id]不存在：投送
 include("../include/config.inc.php");
 
 $room = isset($_COOKIE['R'])?$_COOKIE['R']:0;	//教室
+$classid = isset($_COOKIE['CLASSID'])?$_COOKIE['CLASSID']:0;	//教室
 $role = isset($_GET['r'])?$_GET['r']:"";		//竞技服务
-$port = 8080+$room;
+$port = 8081;
 
 if($role=="play") $port+=10;
 echo $port;
 echo $WSSERVER;
 
 
-$TNAME=$teacher_name[$room];
+$TNAME=$teacher_name[$classid];
 echo $TNAME;
 $ws = new WebSocket($WSSERVER, $port, $TNAME);
