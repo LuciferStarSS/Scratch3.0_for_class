@@ -34,4 +34,4 @@
            2/
            3/
            
-未完待续
+后续说明，将逐步在wiki（ https://github.com/LuciferStarSS/Scratch3.0_for_class/wiki ）中发布。
