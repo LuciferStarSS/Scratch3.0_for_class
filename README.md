@@ -1,5 +1,7 @@
 # Scratch3.0_for_class
 
+[![Watch the video](https://github.com/LuciferStarSS/Scratch3.0_for_class/blob/main/wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
+
 本项目的Scratch3.0编辑器，
 
 脱胎于scratch-www( https://github.com/LLK/scratch-www )，
@@ -13,3 +15,4 @@
 后续说明，
 
 将逐步在wiki（ https://github.com/LuciferStarSS/Scratch3.0_for_class/wiki ）中发布。
+
