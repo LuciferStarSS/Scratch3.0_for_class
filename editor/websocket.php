@@ -489,5 +489,5 @@ echo $WSSERVER;
 
 
 $TNAME=$teacher_name[$classid];
-echo $TNAME;
+echo $TNAME."\r\n";
 $ws = new WebSocket($WSSERVER, $port, $TNAME);

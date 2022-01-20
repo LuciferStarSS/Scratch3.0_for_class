@@ -51,7 +51,10 @@ function initEventHandle() {
         reconnect(strWebSocketServerURL);
     };
     wsSocket.onerror = function (err) {
-        $.post("websocket.php?t=" + Math.random(), {});//启动远程服务
+        $.post("websocket.php?t=" + Math.random(), {},function(data)
+{
+alert(data);
+});//启动远程服务
         var d = new Date();
         var n = d.toLocaleTimeString();
         var data = "Panel系统消息 (" + n + "): 出错了，正在尝试重新运行服务，请稍候。";
