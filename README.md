@@ -4,11 +4,11 @@
 
 本项目的Scratch3.0编辑器，
 
-脱胎于scratch-www( https://github.com/LLK/scratch-www )，
+脱胎于scratch-www( https://github.com/LLK/scratch-www )，当前版本只需要PHP+HTML5，不需要Node.js。
 
 而课堂管理功能，
 
-则建立在websocket( https://github.com/zhenbianshu/websocket )的基础之上。
+则建立在websocket广播服务( https://github.com/zhenbianshu/websocket )的基础上。
 
 
            
