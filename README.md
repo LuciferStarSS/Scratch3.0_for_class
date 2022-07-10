@@ -16,3 +16,5 @@
 
 将逐步在wiki（ https://github.com/LuciferStarSS/Scratch3.0_for_class/wiki ）中发布。
 
+
+由于开始遵循“BSD 3-Clause "New" or "Revised" License”，所以，我需要逐步地将Scratch字样，从项目中剥离了。
