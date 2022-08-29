@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 error_reporting(E_ALL);
 set_time_limit(0);// 设置超时时间为无限,防止超时
 date_default_timezone_set('Asia/shanghai');
@@ -476,18 +476,20 @@ statusReceived[uname.msg_id]不存在：投送
     }
 }
 
-include("../include/config.inc.php");
+//include("../include/config.inc.php");
+//不需要$WSSERVER的配置了。
 
 $room = isset($_COOKIE['R'])?$_COOKIE['R']:0;	//教室
 $classid = isset($_COOKIE['CLASSID'])?$_COOKIE['CLASSID']:0;	//教室
 $role = isset($_GET['r'])?$_GET['r']:"";		//竞技服务
 $port = 8081;
 
-if($role=="play") $port+=10;
+if($role=="play") $port+=10;   //同台竞技的IP要与WS的区分开来。
 echo $port;
-echo $WSSERVER;
+//echo $WSSERVER;
 
 
 $TNAME=$teacher_name[$classid];
 echo $TNAME."\r\n";
-$ws = new WebSocket($WSSERVER, $port, $TNAME);
+//$ws = new WebSocket($WSSERVER, $port, $TNAME);
+ws = new WebSocket("0.0.0.0", $port, $TNAME);//不限定侦听IP，这样，从本地或者域名，都可以正常访问。
