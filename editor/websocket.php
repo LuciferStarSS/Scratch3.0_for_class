@@ -439,7 +439,7 @@ statusReceived[uname.msg_id]不存在：投送
         $data = '';
         $l = strlen($msg);
         for ($i = 0; $i < $l; $i++) {
-            $data .= dechex(ord($msg{$i}));
+            $data .= dechex(ord($msg[$i]));
         }
         $frame[2] = $data;							//Payload Data
 
