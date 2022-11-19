@@ -2,7 +2,7 @@
 error_reporting(0);
 include("../include/config.inc.php");
 
-setCookie("scratchlanguage",'zh-cn',$site_path);
+setCookie("scratchlanguage",'zh-cn',time()+3600,$site_path);
 $x=isset($_GET['x'])?$_GET['x']:"";
 $mip=isset($_GET['i'])?$_GET['i']:"";
 $username=isset($_COOKIE['USERNAME'])?$_COOKIE['USERNAME']:"游客";
