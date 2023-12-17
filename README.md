@@ -18,3 +18,5 @@
 
 
 由于开始遵循“BSD 3-Clause "New" or "Revised" License”，所以，我需要逐步地将Scratch字样，从项目中剥离了。
+
+今后，projects.bundle.js的更新，将由 https://github.com/LuciferStarSS/scratch3_projects_bundle_js_editor 来完成。
