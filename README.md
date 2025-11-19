@@ -5,13 +5,12 @@
 <img src=wiki_resource/demo2.png>
 
 <img src=wiki_resource/demo3.png>
+
 本项目的Scratch3.0编辑器，
 
 脱胎于scratch-www( https://github.com/LLK/scratch-www )，当前版本只需要PHP+HTML5，不需要Node.js。
 
-而课堂管理功能，
-
-则建立在websocket广播服务( https://github.com/zhenbianshu/websocket )的基础上。
+课堂管理功能，是建立在websocket广播服务( https://github.com/zhenbianshu/websocket )的基础上。
 
 
            
@@ -22,4 +21,6 @@
 
 由于开始遵循“BSD 3-Clause "New" or "Revised" License”，所以，我需要逐步地将Scratch字样，从项目中剥离了。
 
-今后，projects.bundle.js的更新，将由 https://github.com/LuciferStarSS/scratch3_projects_bundle_js_editor 来完成。
+今后，Scratch3.0内核（projects.bundle.js）的更新，将由 https://github.com/LuciferStarSS/scratch3_projects_bundle_js_editor 来完成，
+
+积木与类C语言互转的更新则在此项目中：https://github.com/LuciferStarSS/ScratchToText
