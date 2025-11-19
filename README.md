@@ -13,6 +13,7 @@
 课堂管理功能，是建立在websocket广播服务( https://github.com/zhenbianshu/websocket )的基础上。
 
 
+注：此版本的用户管理没有使用数据库，班级的配置信息在./include/config.inc.php里，学生的配置信息在./include/names.inc.php里。
            
 后续说明，
 
