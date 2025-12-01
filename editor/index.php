@@ -1988,7 +1988,7 @@ function dealCommand(jsonCOMMAND)//接收到广播数据后，判断该执行什
          }
          loadFolder(classid);
          nCurrentGroup=jsonCOMMAND[1];
-         setJSCookie(GROUP,nCurrentGroup,1);
+         setJSCookie("GROUP",nCurrentGroup,1);
          //document.cookie="GROUP="+nCurrentGroup;
          updateGroupMember(nCurrentGroup);
          break;
