@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    header("Pragma: no-cache");
    header("Cache-Control: no-cache");
    error_reporting(0);
