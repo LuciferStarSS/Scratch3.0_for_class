@@ -6,9 +6,10 @@ main已停更，请移步V2。
 
 main已停更，请移步V2。
 
-
+main旧界面：
 [![Watch the video](wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
 
+V2新界面：
 <img src=wiki_resource/demo2.png>
 
 <img src=wiki_resource/demo3.png>
