@@ -1,0 +1,15 @@
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+ <title>Paint Editor V1</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#ffffff" stroke-linecap="null" stroke-linejoin="null" id="svg_1" y2="10.10272" x2="16.822984" y1="10.10272" x1="3.194457" stroke-width="3.5" fill="none"/>
+  <line stroke="#ffffff" stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="17.790747" x2="10.138889" y1="2.602732" x1="10.138889" stroke-width="3.5" fill="none"/>
+ </g>
+</svg>
