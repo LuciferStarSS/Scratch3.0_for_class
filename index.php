@@ -22,7 +22,7 @@ if($classid>=0 && isset($names[$classid]) && $stname!="" &&isset($names[$classid
       if($classid>0 && isset($grades[$classid-1]))//教师不区分年级
          setCookie("GRADEID",$grades[$classid-1],time()+3600,$site_path);
       else
-         setCookie("GRADEID",0,time()+3600*8,$site_path);
+         setCookie("GRADEID",5,time()+3600*8,$site_path);
 
       if(!file_exists("./".$student_works)) mkdir("./".$student_works);
       if(isset($classname[$classid-1]) && !file_exists("./".$student_works.$classname[$classid-1])) mkdir("./".$student_works.$classname[$classid-1]);
