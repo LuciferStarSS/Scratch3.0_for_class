@@ -65,6 +65,8 @@
       $room=$teacher_room[$ip][1];
       $username=$teacher_room[$ip][0];
       $admin=1;
+      $gradeid=5;
+      $classid=1;
    }
    else				//学生访问
    {

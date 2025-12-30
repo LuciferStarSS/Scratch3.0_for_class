@@ -537,6 +537,9 @@ statusReceived[uname.msg_id]不存在：投送
 
 include("../include/config.inc.php");
 
+   $ip=getenv("REMOTE_ADDR");
+   if($mip) $ip=$mip;
+
 $room = isset($_COOKIE['R'])?$_COOKIE['R']:1;	//教室
 $role = isset($_GET['r'])?$_GET['r']:"";		//竞技服务
 $port = 8080+$room;
