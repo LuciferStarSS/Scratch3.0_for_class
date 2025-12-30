@@ -21,14 +21,14 @@
         <img src="../img/addvar.png" title="快速插入变量定义模板" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,1);" />
         <img src="../img/addlist.png" title="快速插入列表定义模板"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,2);" />
         <img src="../img/addmsg.png" title="快速插入消息定义模板"  style="position: absolute;top: 80px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,3);" />
-        <div id="text-code-ace1" class="hidden" title="适用于所有角色的变量。这类变量，实际是被定义在了“舞台”角色中。"></div>
+        <div id="text-code-ace1" class="hidden" title="这类变量，实际是被定义在了“舞台”角色中。如代码中有广播的消息而没有预先定义，会自动生成。已定义的广播消息如果没有在代码中被使用，则会被自动清除。"></div>
       </div>
 
       <div alignstyle="0" style="width: 100%;height: 15%;left: -1px;top: -17px;position: relative;">
         <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(2);" />
         <img src="../img/addvar.png" title="快速插入变量定义模板" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(2,1);" />
         <img src="../img/addlist.png" title="快速插入列表定义模板"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(2,2);" />
-        <div id="text-code-ace2" class="hidden" title="仅适用于当前非角色（非舞台）的变量。如果当前角色是“舞台”，请在上方窗口中定义。"></div>
+        <div id="text-code-ace2" class="hidden" title="如果当前角色是“舞台”，请在上方窗口中定义。广播的消息请在上方窗口中定义。"></div>
       </div>
 
       <div alignstyle="0" style="width: 100%;height: 50%;left: -1px;top: -16px;position: relative;">
@@ -37,7 +37,7 @@
         <img src="../img/addfunc1.png" title="快速插入仅带数字或字符参数的自制积木"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(2);" />
         <img src="../img/addfunc2.png" title="快速插入仅带布尔值参数的自制积木"  style="position: absolute;top: 80px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(3);" />
         <img src="../img/addfunc3.png" title="快速插入两种参数类型都带的自制积木"  style="position: absolute;top: 100px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(4);" />
-        <div id="text-code-ace3" class="hidden" title="带事件的代码"></div>
+        <div id="text-code-ace3" class="hidden" title="这里存放关联了事件的代码。"></div>
       </div>
       <div alignstyle="0" style="width: 100%;height: 10%;left: -1px;top: -15px;position: relative;">
         <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(4);" />
@@ -184,27 +184,28 @@ function addVariable(id,n)
 var nFunctionID=0;
 function addFunction(n)
 {
-   editor3.setValue(editor3.getValue()+"\n/* 自制积木有在运行时是否刷新的设置，如要在运行时不刷新，请在函数定义里追加一个true操作。\nvoid Func(true){\n};\n*/\n");
+   if(nFunctionID==0)
+      editor3.setValue(editor3.getValue()+"\n/************************************\n说明：\n1.自制积木无返回值，所以函数返回值类型为void；\n2.普通参数类型为VAR；\n3.布尔值参数类型为BOOL；\n4.因为参数要显示在积木上，所以在函数名中用“_参数名_”来实现定位。\n\n自制积木可设置“运行时不刷新屏幕”，将函数列表中的参数“false”改为“true”即可。\n“false”参数可省略。\n以下两种定义效果相同：\nvoid Func(false){\n};\nvoid Func(){\n};\n************************************/\n");
+
    switch(n)
    {
       case 1:
-         editor3.setValue(editor3.getValue()+"\n/*\n无参数的自制积木函数定义格式为：\nvoid 积木名称(){\n    //自制积木的实现代码\n}*/\nvoid func"+(++nFunctionID)+"(){\n//在这里添加代码\n}\n");
+         editor3.setValue(editor3.getValue()+"void func"+(++nFunctionID)+"(false){\n//在这里添加代码\n}\n");
       break;
 
       case 2:
-         editor3.setValue(editor3.getValue()+"\n/*\n有参数的自制积木函数定义格式为：\nvoid 计算长为_长_宽为_宽_的矩形的面积(VAR 长,VAR 宽){\n    //自制积木的实现代码\n}*/\n//这是个含有一个字符/数字的参数的自制积木\nvoid func_a"+(++nFunctionID)+"_(VAR a"+nFunctionID+"){\n//在这里添加代码\n}\n");
+         editor3.setValue(editor3.getValue()+"void func_a"+(++nFunctionID)+"_(VAR a"+nFunctionID+",false){\n//在这里添加代码\n}\n");
       break;
 
       case 3:
-         editor3.setValue(editor3.getValue()+"\n//这是个含有一个布尔值参数的自制积木\nvoid func_b"+(++nFunctionID)+"_(BOOL b"+nFunctionID+"){\n//在这里添加代码\n}\n");
+         editor3.setValue(editor3.getValue()+"void func_b"+(++nFunctionID)+"_(BOOL b"+nFunctionID+",false){\n//在这里添加代码\n}\n");
       break;
 
       case 4:
-         editor3.setValue(editor3.getValue()+"\n/*说明：\n自制积木无返回值，所以类型为void；\n普通参数类型为VAR；\n布尔值参数类型为BOOL；\n因为参数要显示在积木上，\n所以在函数名中用“_参数名_”来实现定位。\n*/\n\nvoid func_a"+(++nFunctionID)+"__b"+(nFunctionID)+"_(VAR a"+nFunctionID+",BOOL b"+nFunctionID+"){\n//在这里添加代码\n}\n");
+         editor3.setValue(editor3.getValue()+"void func_a"+(++nFunctionID)+"__b"+(nFunctionID)+"_(VAR a"+nFunctionID+",BOOL b"+nFunctionID+",false){\n//在这里添加代码\n}\n");
       break;
    }
    editor3.clearSelection();
-
 }
 
 function setSize(id,n)

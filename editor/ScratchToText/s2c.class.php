@@ -1441,6 +1441,7 @@ print_r($Block);
 
             $this->arrProcedureName[$strFormat]=$strProcedName;
 
+            $this->codeInC[$this->currentType][]= "//如要设置“运行时不刷新屏幕”，请将“false”改为“true”。\n";
             $this->codeInC[$this->currentType][]= $this->padding()."void ".$strProcedName."( ";
 
             if(empty((array)$Block->{'inputs'}))					//可能是旧版本，也可能是无输入
