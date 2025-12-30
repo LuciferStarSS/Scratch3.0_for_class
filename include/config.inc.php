@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /********************************
 数据库配置
 此版本不需要数据库，所以以下配置请忽略
@@ -97,7 +97,7 @@ $teacher_name=Array( //教室与教师对应
 *********************************/
 $student_works="./student_works/";
 
-$site_path="/scratchx/";
+$site_path="./";
 $delete_after_saving=0;				//1:执行“上传文件到服务器”后，删除备份文件。
 $max_backup_file=99;				//0:无限制
 
