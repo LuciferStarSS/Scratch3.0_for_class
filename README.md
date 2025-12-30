@@ -1,10 +1,10 @@
-# Scratch3.0_for_class
+<img width="625" height="447" alt="image" src="https://github.com/user-attachments/assets/53d6ffa1-0966-4b47-ada0-8e79bf3977dd" /># Scratch3.0_for_class
 
-main已停更，请移步V2。
+main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
 
-main已停更，请移步V2。
+main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
 
-main已停更，请移步V2。
+main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
 
 main旧界面：
 [![Watch the video](wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
