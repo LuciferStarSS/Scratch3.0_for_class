@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html><html>
+   <head>
+     <meta charset="UTF-8" />
+     <meta http-equiv="x-ua-compatible" content="ie=edge">
+<!--link rel="stylesheet" type="text/css" href="../css/vs2015.min.css"/-->
+<!--script src="../js/highlight.min.js"></script-->
+
+<link rel="stylesheet" type="text/css" href="./static/devc.css">
+<script>
+   var id=null;
+</script>
+
+
+</head>
+<body style="color:black;font-size:12px;background: hsla(215, 100%, 65%, 1);">
+
+<div  style="position: absolute; width: 100%;height:100%;top:-2px;left: 1px;background:white;">
+
+      <div alignstyle="0" style="width: 100%;height: 15%;left: -1px;top: -18px;position: relative;">
+        <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(1);" />
+        <img src="../img/addvar.png" title="快速插入变量定义模板" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,1);" />
+        <img src="../img/addlist.png" title="快速插入列表定义模板"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,2);" />
+        <img src="../img/addmsg.png" title="快速插入消息定义模板"  style="position: absolute;top: 80px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(1,3);" />
+        <div id="text-code-ace1" class="hidden" title="适用于所有角色的变量。这类变量，实际是被定义在了“舞台”角色中。"></div>
+      </div>
+
+      <div alignstyle="0" style="width: 100%;height: 15%;left: -1px;top: -17px;position: relative;">
+        <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(2);" />
+        <img src="../img/addvar.png" title="快速插入变量定义模板" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(2,1);" />
+        <img src="../img/addlist.png" title="快速插入列表定义模板"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addVariable(2,2);" />
+        <div id="text-code-ace2" class="hidden" title="仅适用于当前非角色（非舞台）的变量。如果当前角色是“舞台”，请在上方窗口中定义。"></div>
+      </div>
+
+      <div alignstyle="0" style="width: 100%;height: 50%;left: -1px;top: -16px;position: relative;">
+        <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(3);" />
+        <img src="../img/addfunc0.png" title="快速插入不带参数的自制积木" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(1);" />
+        <img src="../img/addfunc1.png" title="快速插入仅带数字或字符参数的自制积木"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(2);" />
+        <img src="../img/addfunc2.png" title="快速插入仅带布尔值参数的自制积木"  style="position: absolute;top: 80px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(3);" />
+        <img src="../img/addfunc3.png" title="快速插入两种参数类型都带的自制积木"  style="position: absolute;top: 100px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="addFunction(4);" />
+        <div id="text-code-ace3" class="hidden" title="带事件的代码"></div>
+      </div>
+      <div alignstyle="0" style="width: 100%;height: 10%;left: -1px;top: -15px;position: relative;">
+        <img src="../img/biged.png" title="在大窗口中编辑代码"  style="position: absolute;top: 20px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setEditor(4);" />
+        <!--img src="../img/fsub.png" title="快速插入不带参数的自制积木" style="position: absolute;top: 40px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setSize(4,-2);" />
+        <img src="../img/fadd.png" title="快速插入仅带数字或字符参数的自制积木"  style="position: absolute;top: 60px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setSize(4,2);" />
+        <img src="../img/fadd.png" title="快速插入仅带布尔值参数的自制积木"  style="position: absolute;top: 80px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setSize(4,2);" />
+        <img src="../img/fadd.png" title="快速插入两种参数类型都带的自制积木"  style="position: absolute;top: 100px;left:0px; z-index: 5;text-align: center;cursor: pointer;background: rgb(255,255,255);border: 1px solid;width: 20px;height: 18px;font-weight: bold;" contenteditable="false" onclick="setSize(4,2);"/ -->
+        <div id="text-code-ace4" class="hidden" title="这里存放未关联任何事件的代码。未关联事件的代码，在实际运行时，不会被执行。"></div>
+      </div>
+      <div alignstyle="0" style="width: 262px;height: 10%;top:8px;position: relative;margin:auto">
+        <input type=button value="生成积木" title="点击此按钮，可以将上面的文本代码转换成Scratch3.0积木。" style="width: 260px;height: 70%; font-Size: 16px; margin: 3% auto 3% auto;" onclick="parent.getBlock();">
+      </div>
+</div>
+<div>
+<div id=intel style="position:absolute; background:yellow;visibility:hidden;z-Index=9"></div>
+<div id="intel_view" style="position:absolute; background:gray;visibility:visible;"></div>
+</div>
+<script src="./static/ace/ace.js"></script>
+<script>
+    // The Ace editor needs divs instead of textareas
+    // So we hide the textarea and show a div instead
+
+    document.getElementById("text-code-ace1").classList.remove("hidden");
+    document.getElementById("text-code-ace2").classList.remove("hidden");
+    document.getElementById("text-code-ace3").classList.remove("hidden");
+    document.getElementById("text-code-ace4").classList.remove("hidden");
+
+    // Set up the editor
+    var editor1 = ace.edit("text-code-ace1");
+    var editor2 = ace.edit("text-code-ace2");
+    var editor3 = ace.edit("text-code-ace3");
+    var editor4 = ace.edit("text-code-ace4");
+
+    editor1.setTheme("ace/theme/tomorrow");
+    editor2.setTheme("ace/theme/tomorrow");
+    editor3.setTheme("ace/theme/tomorrow");
+    editor4.setTheme("ace/theme/tomorrow");
+
+    var language ="c_cpp";
+    editor1.getSession().setMode("ace/mode/" + language);
+    editor2.getSession().setMode("ace/mode/" + language);
+    editor3.getSession().setMode("ace/mode/" + language);
+    editor4.getSession().setMode("ace/mode/" + language);
+
+
+
+    editor3.addEventListener("input", function () {
+        showTips(editor3);
+    });
+
+    editor4.addEventListener("input", function () {
+        showTips(editor4);
+    });
+
+
+    // Make sure we copy the content of the editor to the textarea before posting
+    // its content to the server
+    //document.getElementById("launch-save").addEventListener("click", function () {
+    //    editorElement.innerHTML = editor.getValue();
+    //});
+</script>
+
+<script>
+var bChanged=false;
+function autoSave()
+{
+   bChanged=true;
+
+
+}
+
+function setEditor(id)
+{
+   parent.showCE();
+   switch(id){
+   case 1:
+          parent.currentEditor=editor1;
+          parent.editor.setValue(editor1.getValue());
+          break;
+
+   case 2:
+          parent.currentEditor=editor2;
+          parent.editor.setValue(editor2.getValue());
+          break;
+
+   case 3:
+          parent.currentEditor=editor3;
+          parent.editor.setValue(editor3.getValue());
+
+          break;
+
+   case 4:
+          parent.currentEditor=editor4;
+          parent.editor.setValue(editor4.getValue());
+
+          break;
+   }
+   parent.editor.clearSelection();
+
+    parent.editor.addEventListener("input", function () {
+        showTips(parent.editor,true);
+    });
+}
+
+var nVarID=0;
+function addVariable(id,n)
+{
+   switch(id)
+   {
+      case 1:
+         switch(n)
+         {
+            case 1:
+               editor1.setValue(editor1.getValue()+"\nVAR 变量名"+(++nVarID)+"=0;");
+            break;
+
+            case 2:
+               editor1.setValue(editor1.getValue()+"\nLIST 列表名"+(++nVarID)+"={};");
+            break;
+
+            case 3:
+               editor1.setValue(editor1.getValue()+"\nMSG 消息"+(++nVarID)+"=\"消息"+(nVarID)+"\";");
+            break;
+         }
+         editor1.clearSelection();
+
+         break;
+      case 2:
+         switch(n)
+         {
+            case 1:
+               editor2.setValue(editor2.getValue()+"\nVAR 变量名"+(++nVarID)+"=0;");
+            break;
+
+            case 2:
+               editor2.setValue(editor2.getValue()+"\nLIST 列表名"+(++nVarID)+"={};");
+            break;
+         }
+         editor2.clearSelection();
+         break;
+   }
+}
+
+var nFunctionID=0;
+function addFunction(n)
+{
+   editor3.setValue(editor3.getValue()+"\n/* 自制积木有在运行时是否刷新的设置，如要在运行时不刷新，请在函数定义里追加一个true操作。\nvoid Func(true){\n};\n*/\n");
+   switch(n)
+   {
+      case 1:
+         editor3.setValue(editor3.getValue()+"\n/*\n无参数的自制积木函数定义格式为：\nvoid 积木名称(){\n    //自制积木的实现代码\n}*/\nvoid func"+(++nFunctionID)+"(){\n//在这里添加代码\n}\n");
+      break;
+
+      case 2:
+         editor3.setValue(editor3.getValue()+"\n/*\n有参数的自制积木函数定义格式为：\nvoid 计算长为_长_宽为_宽_的矩形的面积(VAR 长,VAR 宽){\n    //自制积木的实现代码\n}*/\n//这是个含有一个字符/数字的参数的自制积木\nvoid func_a"+(++nFunctionID)+"_(VAR a"+nFunctionID+"){\n//在这里添加代码\n}\n");
+      break;
+
+      case 3:
+         editor3.setValue(editor3.getValue()+"\n//这是个含有一个布尔值参数的自制积木\nvoid func_b"+(++nFunctionID)+"_(BOOL b"+nFunctionID+"){\n//在这里添加代码\n}\n");
+      break;
+
+      case 4:
+         editor3.setValue(editor3.getValue()+"\n/*说明：\n自制积木无返回值，所以类型为void；\n普通参数类型为VAR；\n布尔值参数类型为BOOL；\n因为参数要显示在积木上，\n所以在函数名中用“_参数名_”来实现定位。\n*/\n\nvoid func_a"+(++nFunctionID)+"__b"+(nFunctionID)+"_(VAR a"+nFunctionID+",BOOL b"+nFunctionID+"){\n//在这里添加代码\n}\n");
+      break;
+   }
+   editor3.clearSelection();
+
+}
+
+function setSize(id,n)
+{
+   var editor=document.getElementById("text-code-ace"+id);
+
+   if(editor.style.fontSize=='') 
+      editor.style.fontSize="14px";
+
+   if(parseInt(editor.style.fontSize)<12)
+   {
+      editor.style.fontSize="12px";
+   }
+}
+
+window.parent.bCVLoaded=true;
+
+var arrKEYWORD=Array(
+
+   //运动
+   "运动->移动10步|motion_movesteps( 10 );",
+   "运动->右转90度|motion_turnright( 90 );",
+   "运动->左转90度|motion_turnleft( 90 );",
+   "运动->移到随机位置|motion_goto(\"_random_\");",
+   "运动->移到鼠标位置|motion_goto(\"_mouse_\");",
+   "运动->移到角色位置|motion_goto(\"角色1\");",
+   "运动->移到xy|motion_gotoxy( 10 , 10 );",
+   "运动->在1秒内滑行到随机位置|motion_glideto(1, \"_random_\");",
+   "运动->在1秒内滑行到鼠标位置|motion_glideto(1, \"_mouse_\");",
+   "运动->在1秒内滑行到角色位置|motion_glideto(1, \"角色1\");",
+   "运动->在1秒内滑到xy|motion_glidesecstoxy( 1 , 10 , 10 );",
+   "运动->面向90方向|motion_pointindirection(90);",
+   "运动->面向鼠标指针|motion_pointtowards(\"_mouse_\" );",
+   "运动->面向角色|motion_pointtowards(\"角色1\" );",
+   "运动->将x坐标设为10|motion_setx( 10 );",
+   "运动->将x坐标增加10|motion_changexby( 10 );",
+   "运动->将y坐标设为10|motion_sety( 10 );",
+   "运动->将y坐标增加10|motion_changeyby( 10 );",
+   "运动->遇到边缘就反弹|motion_ifonedgebounce();",
+   "运动->将旋转方式设为左右翻转|motion_setrotationstyle( \"left-right\" );",
+   "运动->将旋转方式设为不可旋转|motion_setrotationstyle( \"don't rotate\" );",
+   "运动->将旋转方式设为任意旋转|motion_setrotationstyle( \"all around\" );",
+   "运动->x坐标|motion_xposition()",
+   "运动->y坐标|motion_yposition()",
+   "运动->方向|motion_direction()",
+
+   //外观
+   "外观->说你好|looks_say(\"你好\");",
+   "外观->说你好5秒|looks_sayforsecs(\"你好\",5);",
+   "外观->想嗯|looks_think(\"嗯\");",
+   "外观->想嗯5秒|looks_thinkforsecs(\"嗯\",5);",
+   "外观->切换造型为|looks_switchcostumeto (\"造型1\");",
+   "外观->下一个造型|looks_nextcostume();",
+   "外观->切换背景为|looks_switchbackdropto (\"背景1\");",
+   "外观->下一个背景|looks_nextbackdrop();",
+   "外观->将大小增加10|looks_changesizeby(10);",
+   "外观->将大小设为10|looks_setsizeto(10);",
+   "外观->将特效增加10|looks_changeeffectby(10);",
+   "外观->将颜色特效增加10|looks_changeeffectby( \"COLOR\" , 25 );",
+   "外观->将鱼眼特效增加10|looks_changeeffectby( \"FISHEYE\" , 25 );",
+   "外观->将漩涡特效增加10|looks_changeeffectby( \"WHIRL\" , 25 );",
+   "外观->将像素化特效增加10|looks_changeeffectby( \"PIXELATE\" , 25 );",
+   "外观->将马赛克特效增加10|looks_changeeffectby( \"MOSAIC\" , 25 );",
+   "外观->将亮度特效增加10|looks_changeeffectby( \"BRIGHTNESS\" , 25 );",
+   "外观->将虚像特效增加10|looks_changeeffectby( \"GHOST\" , 25 );",
+   "外观->将颜色特效设定为10|looks_seteffectto( \"COLOR\" , 25 );",
+   "外观->将鱼眼特效设定为10|looks_seteffectto( \"FISHEYE\" , 25 );",
+   "外观->将漩涡特效设定为10|looks_seteffectto( \"WHIRL\" , 25 );",
+   "外观->将像素化特效设定为10|looks_seteffectto( \"PIXELATE\" , 25 );",
+   "外观->将马赛克特效设定为10|looks_seteffectto( \"MOSAIC\" , 25 );",
+   "外观->将亮度特效设定为10|looks_seteffectto( \"BRIGHTNESS\" , 25 );",
+   "外观->将虚像特效设定为10|looks_seteffectto( \"GHOST\" , 25 );",
+   "外观->清除图像特效|looks_cleargraphiceffects();",
+   "外观->显示|looks_show();",
+   "外观->隐藏|looks_hide();",
+   "外观->移到最前面|looks_gotofrontback(\"front\")",
+   "外观->移到最后面|looks_gotofrontback(\"back\");",
+   "外观->前移1层|looks_goforwardbackwardlayers;(\"forward\",1);",
+   "外观->后移1层|looks_goforwardbackwardlayers(\"backward\",1);",
+   "外观->造型编号|looks_costumenumbername(\"number\")",
+   "外观->造型名称|looks_costumenumbername(\"name\")",
+   "外观->背景编号|looks_backdropnumbername(\"number\")",
+   "外观->背景名称|looks_backdropnumbername(\"name\")",
+   "外观->角色大小|looks_size()",
+
+   //声音
+   "声音->播放声音喵等待播完|sound_playuntildone(\"喵\");",
+   "声音->播放声音喵|sound_play(\"喵\");",
+   "声音->停止所有声音|sound_stopallsounds();",
+   "声音->将音调音效增加10|sound_changeeffectby(\"PITCH\",10);",
+   "声音->将左右平衡增加10|sound_changeeffectby(\"PAN\",10);",
+   "声音->将音效设为10|sound_seteffectto(\"PITCH\",10);",
+   "声音->将左右平衡设为10|sound_seteffectto(\"PAN\",10);",
+   "声音->清除音效|sound_cleareffects();",
+   "声音->将音调音量增加10|sound_changevolumeby(10);",
+   "声音->将音量设为百分之|sound_setvolumeto(100);",
+   "声音->音量|sound_volume()",
+
+   //事件
+   "事件->当绿旗被点击|event_whenflagclicked(){\n\n\n}",
+   "事件->当按下空格键|event_whenkeypressed(\"space\"){\n\n\n}",
+   "事件->当按下向上键|event_whenkeypressed(\"up arrow\"){\n\n\n}",
+   "事件->当按下向下键|event_whenkeypressed(\"down arrow\"){\n\n\n}",
+   "事件->当按下向左键|event_whenkeypressed(\"left arrow\"){\n\n\n}",
+   "事件->当按下向右键|event_whenkeypressed(\"right arrow\"){\n\n\n}",
+   "事件->当按下a键|event_whenkeypressed(\"a\"){\n\n\n}",
+   "事件->当按下任意按键|event_whenkeypressed(\"any\"){\n\n\n}",
+   "事件->当角色被点击|event_whenthisspriteclicked(){\n\n\n}",
+   "事件->当舞台被点击|event_whenstageclicked(){\n\n\n}",
+   "事件->当背景换成|event_whenbackdropswitchesto(\"背景1\"){\n\n\n}",
+   "事件->当响度大于|event_whengreaterthan(\"LOUDNESS\",10){\n\n\n}",
+   "事件->当计时器大于|event_whengreaterthan(\"TIMER\",10){\n\n\n}",
+   "事件->当按接收到消息|event_whenbroadcastreceived(\"消息1\"){\n\n\n}",
+   "事件->广播|event_broadcast(\"消息1\");",
+   "事件->广播消息|event_broadcastandwait(\"消息1\");",
+
+   //控制
+   "控制->重复执行直到|do{\n\n\n}while(!());\n",
+   "控制->如果那么|if(){\n\n\n}",
+   "控制->如果那么否则|if(){\n\n\n}else{\n\n\n}",
+   "控制->重复执行10次|for(int i=0;i< 10 ;i++)\n{\n\n\n}\n",
+   "控制->重复执行|do{\n\n\n}while(1);\n",
+   "控制->等待1秒|control_wait( 1 );",
+   "控制->等待|do{\n}while(!());\n",
+   "控制->停止全部|control_stop(\"all\");",
+   "控制->停止当前脚本|control_stop(\"this script\");",
+   "控制->停止当前角色的其他脚本|control_stop(\"other scripts in sprite\");",
+   "控制->当克隆开始|control_start_as_clone(){\n\n\n}",
+   "控制->克隆自己|control_create_clone_of(\"_myself_\");",
+   "控制->克隆角色|control_create_clone_of(\"角色1\");",
+   "控制->删除此克隆体|control_delete_this_clone();",
+
+   //侦测
+   "侦测->碰到鼠标|sensing_touchingobject(\"_mouse_\")",
+   "侦测->碰到舞台边缘|sensing_touchingobject(\"_edge_\")",
+   "侦测->碰到角色|sensing_touchingobject(\"角色1\")",
+   "侦测->碰到颜色|sensing_touchingcolor (\"#ff0000\")",
+   "侦测->颜色碰到颜色|sensing_coloristouchingcolor (\"#ff0000\",\"#00ff00\")",
+   "侦测->到鼠标的距离|sensing_distanceto(\"_mosue_\")",
+   "侦测->到角色的距离|sensing_distanceto(\"角色1\")",
+   "侦测->询问并等待|sensing_askandwait(\"你要问什么？\");",
+   "侦测->回答|sensing_answer()",
+   "侦测->探测空格键是否被按下|sensing_keypressed(\"space\")",
+   "侦测->探测任意键是否被按下|sensing_keypressed(\"any\")",
+   "侦测->探测a键是否被按下|sensing_keypressed(\"a\")",
+   "侦测->探测鼠标是否被按下|sensing_mousedown()",
+   "侦测->鼠标X坐标|sensing_mousex()",
+   "侦测->鼠标Y坐标|sensing_mousey()",
+   "侦测->将拖动模式设为可拖动|sensing_setdragmode(\"draggable\");",
+   "侦测->将拖动模式设为不可拖动|sensing_setdragmode(\"not draggable\");",
+   "侦测->响度|sensing_loudness()",
+   "侦测->计时器|sensing_timer()",
+   "侦测->计时器归零|sensing_resettimer();",
+   "侦测->当前的年|sensing_current(\"YEAR\")",
+   "侦测->当前的月|sensing_current(\"MONTH\")",
+   "侦测->当前的日|sensing_current(\"DAY\")",
+   "侦测->当前的时|sensing_current(\"HOUR\")",
+   "侦测->当前的分|sensing_current(\"MINUTE\")",
+   "侦测->当前的秒|sensing_current(\"SECOND\")",
+   "侦测->获取舞台的背景编号|sensing_of(\"_stage_\",\"backdrop #\")",
+   "侦测->获取舞台的背景名称|sensing_of(\"_stage_\",\"backdrop name\")",
+   "侦测->获取舞台的音量|sensing_of(\"_stage_\",\"volume\")",
+   "侦测->获取舞台的变量|sensing_of(\"_stage_\",\"我的变量\")",
+   "侦测->获取角色的x坐标|sensing_of(\"角色1\",\"x position\")",
+   "侦测->获取角色的y坐标|sensing_of(\"角色1\",\"y position\")",
+   "侦测->获取角色的方向|sensing_of(\"角色1\",\"direction\")",
+   "侦测->获取角色的造型编号|sensing_of(\"角色1\",\"costume #\")",
+   "侦测->获取角色的造型名称|sensing_of(\"角色1\",\"costume name\")",
+   "侦测->获取角色的大小|sensing_of(\"角色1\",\"size\")",
+   "侦测->获取角色的音量|sensing_of(\"角色1\",\"volume\")",
+   "侦测->自2000年开始至今的天数|sensing_dayssince2000()",
+   "侦测->用户名|sensing_username()",
+
+   //运算
+   "运算->在1和10之间取随机数|random(1,10)",
+   "运算->是否包含字符串|operator_contains(\"\",\"\")",
+   "运算->连接字符串|join(\"\",\"\")",
+   "运算->四舍五入|round(0.1)",
+   "运算->字符串长度|operator_length(\"字符串\")",
+   "运算->数学函数运算：绝对值|abs(1)",
+   "运算->数学函数运算：向下取整|floor(1)",
+   "运算->数学函数运算：向上取整|ceiling(1)",
+   "运算->数学函数运算：开方|sqrt(4)",
+   "运算->数学函数运算：sin|sinf(1)",
+   "运算->数学函数运算：cos|cos(1)",
+   "运算->数学函数运算：tan|tan(1)",
+   "运算->数学函数运算：asin|asin(1)",
+   "运算->数学函数运算：acos|acos(1)",
+   "运算->数学函数运算：atan|atan(1)",
+   "运算->数学函数运算：ln|ln(100)",
+   "运算->数学函数运算：log|log(4)",
+   "运算->数学函数运算：e ^|operator_mathop(\"e ^\",,1)",
+   "运算->数学函数运算：10 ^|operator_mathop(\"10 ^\",,1)",
+
+   //变量
+   "变量->将变量设为0|data_setvariableto(0);",
+   "变量->将变量增加1|data_changevariableby(1);",
+   "变量->显示变量|data_showvariable(\"我的变量\");",
+   "变量->显示变量|data_hidevariable(\"我的变量\");",
+   "变量->将东西加入列表|data_addtolist(列表名,\"东西\");",
+   "变量->删除列表第1项|data_deleteoflist(列表名,1);",
+   "变量->删除列表的全部项目|data_deletealloflist(列表名);",
+   "变量->在列表的第1项前插入东西|data_insertatlist(列表名,1,\"东西\");",
+   "变量->将列表的第1项替换为东西|data_replaceitemoflist(列表名,1,\"东西\");",
+   "变量->列表的第1项|data_itemoflist(列表名,1)",
+   "变量->列表的第1个东西的编号|data_itemnumoflist(列表名,\"东西\")",
+   "变量->列表长度|data_lengthoflist()",
+   "变量->列表是否包含东西|data_listcontainsitem(列表名,\"东西\")",
+   "变量->显示列表|data_showlist(列表名);",
+   "变量->隐藏列表|data_hidelist(列表名);",
+
+   //画笔
+   "画笔->全部擦除|pen_clear();",
+   "画笔->图章|pen_stamp();",
+   "画笔->落笔|pen_penDown();",
+   "画笔->提笔|pen_penUp();",
+   "画笔->设置画笔颜色|pen_setPenColorToColor(\"#0000ff\");",
+   "画笔->将笔的颜色增加|pen_changePenColorParamBy(\"color\",10);",
+   "画笔->将笔的饱和度增加|pen_changePenColorParamBy(\"saturation\",10);",
+   "画笔->将笔的亮度增加|pen_changePenColorParamBy(\"brightness\",10);",
+   "画笔->将笔的透明度增加|pen_changePenColorParamBy(\"tansparency\",10);",
+   "画笔->将笔的颜色增加|pen_setPenColorParamTo(\"color\",10);",
+   "画笔->将笔的饱和度增加|pen_setPenColorParamTo(\"saturation\",10);",
+   "画笔->将笔的亮度增加|pen_setPenColorParamTo(\"brightness\",10);",
+   "画笔->将笔的透明度增加|pen_setPenColorParamTo(\"tansparency\",10);",
+   "画笔->将笔的粗细增加|pen_changePenSizeBy(1);",
+   "画笔->将笔的粗细设为|pen_setPenSizeTo(1);",
+
+   //音乐
+   "音乐->击打乐器0.25拍|music_playDrumForBeats(1,0.25);",
+   "音乐->休止0.25拍|music_restForBeats(0.25);",
+   "音乐->演奏音符0.25拍|music_playNoteForBeats(60,0.25);",
+   "音乐->将乐器设为|music_setInstrument(1);",
+   "音乐->将演奏速度设定为60|music_setTempo(60);",
+   "音乐->将演奏速度增加20|music_changeTempo(20);",
+   "音乐->演奏速度|music_getTempo()",
+
+/*
+   //网络工具
+   "网络工具->当接收到聊天消息|chattingroom_whenChatMessageComes();",
+   "网络工具->聊天室发送消息|chattingroom_sendMsgTo();",
+   "网络工具->聊天室接收到的最近一条消息|chattingroom_lastReceivedMsg()",
+   "网络工具->最后一条未读消息的发送者|chattingroom_lastReceivedMsgSender()",
+   "网络工具->来自某人的最后一条消息|chattingroom_lastMsgFrom()",
+   "网络工具->上报信息|chattingroom_sendReport();",
+   "网络工具->聊天室用户列表|chattingroom_menu_userlist();",
+   "网络工具->聊天室未读消息|chattingroom_unreadMsgLength()",
+*/
+
+);
+
+// 将光标位置转换为像素坐标
+function getCursorPixelPosition(editor,row, column) {
+    // 如果未提供参数，使用当前光标位置
+    if (row === undefined || column === undefined) {
+        var cursor = editor.getCursorPosition();
+        row = cursor.row;
+        column = cursor.column;
+    }
+    
+    // 获取像素位置
+    var pixelPos = editor.renderer.textToScreenCoordinates(row, column);
+    
+    return {
+        x: pixelPos.pageX,
+        y: pixelPos.pageY,
+        clientX: pixelPos.clientX,
+        clientY: pixelPos.clientY
+    };
+}
+
+
+// 如果有选中文本则替换，否则在光标处插入
+function insertOrReplace(editor,text) {
+    // 获取选择范围
+    var range = editor.getSelectionRange();
+    
+    if (range.isEmpty()) {
+        // 没有选中文本，在光标处插入
+        editor.insert(text);
+    } else {
+        // 有选中文本，替换选中内容
+        editor.session.replace(range, text);
+    }
+}
+
+// 选中光标前的 n 个字符
+function selectBeforeCursor(editor,n) {
+    var cursor = editor.getCursorPosition();
+    var startColumn = Math.max(0, cursor.column - n);
+    
+    // 设置选择范围
+    editor.selection.setSelectionRange({
+        start: {
+            row: cursor.row,
+            column: startColumn
+        },
+        end: {
+            row: cursor.row,
+            column: cursor.column
+        }
+    });
+}
+
+//Inteligence Tips
+
+var divIV=document.getElementById("intel_view");
+var divPROMPT=document.getElementById("intel");
+var bInserted=false;
+
+function isExtraExtensionNeeded(extID)
+{
+   var arrExtraExtension=["pen","music"];
+   return arrExtraExtension.includes(extID);
+}
+
+
+function showTips(editor,bParent=false)
+{
+   if(bParent)
+   {
+      divIV=parent.document.getElementById("intel_view");
+      divPROMPT=parent.document.getElementById("intel");
+   }
+   else
+   {
+      divIV=document.getElementById("intel_view");
+      divPROMPT=document.getElementById("intel");
+   }
+
+   var cursorPos = editor.getCursorPosition();
+
+   // 获取当前行内容
+   var currentLine = editor.session.getLine(cursorPos.row);
+
+   // 获取当前行中光标位置前的文本
+   var strLast = currentLine.substring(0, cursorPos.column);
+
+   //alert( textBeforeCursorInLine);
+
+   var arrLineData=strLast.split(/[ .,!?;:(){}0123456789]/);//strLast.match(/\b[a-zA-Z]+\b/g) || [];
+
+   var strKeyword=arrLineData.pop();
+
+   //if(id.id!="CODE_HATS" && id.id!="CODE_FREE") return;		//只能在代码窗口显示提示
+   var bFound=false;
+
+   if(strKeyword && !bInserted)//可以响应空格
+   {
+      var strKeywordType='';
+      for(var i=0;i<arrKEYWORD.length;i++)
+      {
+         //strLast=strLast.trim(' ');			//过滤空格
+         var nPos=arrKEYWORD[i].indexOf(strKeyword);	//匹配关键词所对应的命令
+         if(strKeyword=='') {nPos=1;}			//如果敲了空格，就显示所有命令。
+         if(nPos!=-1)					//匹配到，就显示
+         {
+            if(!bFound)
+               divPROMPT.innerHTML=""; 
+
+            var d=document.createElement("div");
+            d.style="position: relative;width: 150px;margin:4px;cursor:default";
+            d.innerText=arrKEYWORD[i].split('|')[0];
+            d.setAttribute("d",arrKEYWORD[i].split('|')[1]);
+            d.onclick=function(){
+               divPROMPT.style.visibility="hidden";
+               selectBeforeCursor(editor,strKeyword.length);		//选中要替换的文本
+               insertOrReplace(editor,this.getAttribute("d"));		//替换插入选择的代码
+               divPROMPT.innerHTML=""; 					//删除提示窗口
+               divIV.innerHTML="";
+               bInserted=true;						//防止选择后依旧出现选择
+               editor.focus();						//继续获取焦点
+            };
+            d.onmouseover=function()
+            {
+               this.style.background="red";
+               var c=divIV;
+               c.innerText=this.getAttribute("d");
+               c.style.left=this.parentElement.offsetWidth+this.offsetLeft+this.parentElement.offsetLeft-3+"px";
+               c.style.top=this.offsetTop+this.parentElement.offsetTop+this.offsetHeight-19+"px";
+               c.style.zIndex="999999999999";
+               c.style.visibility="visible";
+            };
+            d.onmouseout=function()
+            {
+               this.style.background="white";
+               divIV.style.visibility="hidden";
+            };
+            divPROMPT.appendChild(d);
+            bFound=true;
+         }
+      }
+   }
+   else bInserted=false;
+
+   if(!bFound)
+   {
+      divPROMPT.innerHTML=""; 
+      divIV.innerHTML="";
+   }
+   else
+   {
+      divPROMPT.style.visibility="visible";
+
+      if(bParent){
+         var pixelPos = getCursorPixelPosition(editor);
+         divPROMPT.style.left=pixelPos.x-310+"px";
+         divPROMPT.style.top=(pixelPos.y-79)+"px";
+         divPROMPT.style.zIndex=10000000000;
+      }
+      else
+      {
+
+         var pixelPos = getCursorPixelPosition(editor);
+         divPROMPT.style.left=pixelPos.x+"px";
+         divPROMPT.style.top=pixelPos.y+editor.renderer.lineHeight+"px";
+         divPROMPT.style.zIndex=9;
+      }
+   }
+}
+
+
+</script>
+</body>
+</html>

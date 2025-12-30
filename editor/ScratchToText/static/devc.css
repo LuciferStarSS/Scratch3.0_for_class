@@ -1,0 +1,160 @@
+body {
+    background: #E5E4DF;
+    color: #000305;
+    font-size: 87.5%; /* Base font size: 14px */
+    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.429;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+li {
+    display: inline;
+}
+
+#content {
+    position: absolute;
+    top: 50px;
+    min-height: 600px;
+    min-width: 900px;
+    width: 100%;
+    height: 90%;
+}
+
+#code {
+    position: absolute;
+    height: 60%;
+    min-height: 350px;
+    min-width: 400px;
+    left: 10px;
+    top: 5px;
+    width: 48%;
+}
+
+.listcontent{
+
+    float: left;
+    width: 50px;
+    left: 6x;
+    position: relative;
+    background: bisque;
+    margin: 5px 5px 5px 5px;
+    #overflow-y: auto;
+    cursor:grab;
+}
+
+#question{
+    font-size:16px;width:645px;height:300px;overflow:auto;font-size: 14px;
+}
+#task{
+    font-size:16px;width:645px;height:300px;overflow:auto;font-size: 14px;
+}
+
+#demoinput{
+    font-size:16px;width:314px;height:130px;overflow:auto;font-size: 12px;
+}
+#demooutput{
+    font-size:16px;width:314px;height:130px;overflow:auto;font-size: 12px;
+}
+
+#testinput{
+    font-size:16px;width:310px;height:130px;overflow:auto;font-size: 12px;
+}
+#testoutput{
+    font-size:16px;width:310px;height:130px;overflow:auto;font-size: 12px;
+}
+
+#inputargs{
+    font-size:16px;width:300px;height:20px;overflow:auto;font-size: 12px;
+}
+
+#inputdata{
+    font-size:16px;width:300px;height:100px;overflow:auto;font-size: 12px;
+}
+#result {
+    font-size:16px;width:325px;height:100px;overflow:auto;font-size: 12px;
+}
+
+#compile {
+    font-size:16px;width:325px;height:100px;overflow:auto;font-size: 12px;
+}
+
+#launch-button {
+    position: absolute;
+    right: 0px;
+}
+
+.head-section {
+    position: absolute;
+    top: 0px;
+    font-weight:bold;
+}
+
+#title-code {
+    position: absolute;
+    left: 5px;
+}
+
+#title-result {
+    position: absolute;
+    left: 5px;
+}
+
+#title-compile{
+    position: absolute;
+    left: 5px;
+}
+
+#text-code, #text-code-ace{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
+#text-code1, #text-code2, #text-code-ace1, #text-code-ace2 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#text-code3, #text-code-ace3{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#text-code4, #text-code-ace4{
+    position: absolute;
+    top: 20px;
+    width:100%;
+    height: 100%;
+}
+
+#text-code-ace,#text-code-ace1,#text-code-ace2,#text-code-ace3,#text-code-ace4 {
+    padding: 0px;
+    border: 1px solid rgb(169, 169, 169);
+}
+
+#text-result {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 80%;
+}
+
+#text-compile {
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+    width: 98%;
+    height: 80%;
+}
+
+.hidden {
+    display: none;
+}
