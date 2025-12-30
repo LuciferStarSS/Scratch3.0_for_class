@@ -1,7 +1,18 @@
 # Scratch3.0_for_class
 
+这是该项目的第二版（V2）
+主分支main停更，接下来主要维护V2这个分支。
+
+之前版本，在增加功能的时候没有考虑目录结构，导致很多数据交织在了一起，要修改的话比较麻烦。
+
+此版本将多个功能互相独立开来，比如课堂管理CM，如果不需要，可以直接改名或者删除整个目录。
+
+与此类似的有：积木与文本代码互转功能ScratchToText, 流程图Diagram, 小白板WhiteBoard,暂存盘Pickup。
+
+下图可点击后观看老版本的功能演示。新版本在这个基础上有调整。
 [![Watch the video](wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
 
+下图是新版本的界面效果：
 <img src=wiki_resource/demo2.png>
 
 <img src=wiki_resource/demo3.png>
