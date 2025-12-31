@@ -814,7 +814,7 @@ else//学生端
         <!--实时板书生成功能-->
         <div style="position: absolute;top: 0px;left: 86px;z-Index:99999;">
           <!--输入文本或粘贴图片、视频-->
-          <input type="text" style="width:155px; height:19px; " id="addtxt" placeholder="此处可粘贴图片/文字/视频" autocomplete="off"   onfocus="showHistoryTXT();" oninput="showHistoryTXT();">
+          <input type="text" style="width:155px; height:19px;font-size:12px; " id="addtxt" placeholder="此处可粘贴图片/文字/视频" autocomplete="off"   onfocus="showHistoryTXT();" oninput="showHistoryTXT();">
           <!--在输入时，调取历史文本记录备选-->
           <div id=historyTXT style="visibility:hidden;"></div>
           <select id="fontsize" style="position: absolute;top: 0px;left: 162px;height: 25px;" title="设置文字的字号/线条的粗细">
