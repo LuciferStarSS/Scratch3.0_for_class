@@ -1114,6 +1114,18 @@ function shrinkImg()
                var jsonArr=JSON.parse(data);						//获取提交的图片的实际文件名
 
                if(JSON.stringify(jsonArr)=="{}") return;
+
+
+               strIMGNAME=strIMGNAME.replace("LINES/","");
+
+               if( jsonArr[0].indexOf(strIMGNAME)!=-1)
+               {
+                  if(document.getElementById(strIMGNAME)==null) insertImg(strIMGNAME,jsonArr[0]);
+                  else
+                    document.getElementById(strIMGNAME).children[1].src=jsonArr[0]+"?t="+Math.random();	//加随机数，让浏览器获取最新的图片。
+               }
+
+/*
                for(var i=0;i<jsonArr.length;i++)					//当前系统，默认PNG，但为了稳妥，还是检查一下。
                {
                   if( jsonArr[i].indexOf(strIMGNAME)!=-1)
@@ -1125,6 +1137,7 @@ function shrinkImg()
                      break;
                   }
                }
+*/
                OptArr.length=0;
                updateUndoRedo_UI();
             }
@@ -2257,6 +2270,17 @@ document.getElementById('addtxt').onpaste = function ()
 
                           if(JSON.stringify(jsonArr)=="{}") return;
 
+
+                          strIMGNAME=strIMGNAME.replace("LINES/","");
+
+                          if( jsonArr[0].indexOf(strIMGNAME)!=-1)
+                          {
+                             if(document.getElementById(strIMGNAME)==null) insertImg(strIMGNAME,jsonArr[0]);
+                             else
+                                document.getElementById(strIMGNAME).children[1].src=jsonArr[0]+"?t="+Math.random();	//加随机数，让浏览器获取最新的图片。
+                          }
+
+/*
                           for(var i=0;i<jsonArr.length;i++)					//当前系统，默认PNG，但为了稳妥，还是检查一下。
                           {
                              if( jsonArr[i].indexOf(strIMGNAME)!=-1)
@@ -2268,6 +2292,7 @@ document.getElementById('addtxt').onpaste = function ()
                                 break;
                              }
                           }
+*/
                        }
                     });//POST
 
