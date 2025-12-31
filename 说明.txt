@@ -1,0 +1,38 @@
+Scratch3.0_for_class
+
+https://github.com/LuciferStarSS/Scratch3.0_for_class/
+
+
+
+系统需求：
+
+任意WEB服务器 + PHP7
+
+
+其中：
+
+   1.WEB服务器字符集为UTF-8
+   2.建议开启文件压缩功能（如Apache的mod_deflate模块），以提高网站的加载速度和减少带宽消耗。以下是一些常见的方法：
+
+   3.PHP需要开启扩展：
+      socket			//用于支持websocket
+      iconv			//在访问磁盘时可能存在需要转换中文字符的需求
+
+   4.如果PHP版本为8+，请将
+      ./editor/websocket8.php
+     覆盖
+      ./editor/websocket.php
+
+
+
+使用前，请查看并按需调整配置文件：
+./include/config.inc.php
+
+
+当前配置需要将解压缩后的文件复制到WEB根目录，例如：
+
+d:/htdocs/scratch3.0_for_class/
+
+
+
+注意，所有PHP文件，在修改后，要设置字符集为UTF-8，不要带BOM头。
