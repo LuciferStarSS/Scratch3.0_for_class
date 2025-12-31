@@ -9,7 +9,7 @@ $WSSERVER	=	($_SERVER['SERVER_ADDR']=="::1")?"127.0.0.1":$_SERVER['SERVER_ADDR']
 *********************************/
 $student_works="student_works/";
 
-$site_path="/scratch3.0_for_class-2/";		//Scratch3.0的editor文件夹所在路径
+$site_path="/scratch3.0_for_class/";		//Scratch3.0的editor文件夹所在路径
                                                 //这个请使用WEB目录中从根目录开始的绝对路径。
 
 
@@ -223,4 +223,5 @@ function validateFilename($filename)
 function validateMsg($msg)
 {
    return str_replace(Array('<script','</script>'),'*',$msg);
+
 }
