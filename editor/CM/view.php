@@ -28,11 +28,11 @@ if($filename!="" && $date!="" && $classid!="" && isset($classname[$classid-1]))
    }
    else
    {
-      $filepath="../../".$student_works.$class."/".$date."/".iconv("UTF-8","GBK",$filename);//限定路径，防止越界。
+      $filepath="../".$student_works.$class."/".$date."/".iconv("UTF-8","GBK",$filename);//限定路径，防止越界。
 
-      if(file_exists($filepath))
+      if(file_exists("../".$filepath))
       {
-         echo "../".$filepath."?22t=".rand(0,255);
+         echo $filepath."?22t=".rand(0,255);
          //echo $filepath;
          exit;//         echo file_get_contents($filepath);
       }
