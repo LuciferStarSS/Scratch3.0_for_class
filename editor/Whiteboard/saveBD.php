@@ -21,8 +21,12 @@ if(isset($teacher_room[$ip]))					//仅限教师访问，防止非授权访问导致数据丢失。
 
    if(!file_exists("../../data/whiteboard/".$room."/".$GID."/"))
    {
-      mkdir("../../data/whiteboard/".$room."/".$GID."/");
-      mkdir("../../data/whiteboard/".$room."/".$GID."/bd/");
+      mkdir("../../data/whiteboard/".$room."/".$GID."/bd/",0777,true);
+   }
+
+   if(!file_exists("../../data/config/".$room."/"))
+   {
+      mkdir("../../data/config/".$room."/",0777,true);
    }
 
    file_put_contents("../../data/config/".$room."/".$classid.".bdpos.dat",$memo."\r\n".$pos);

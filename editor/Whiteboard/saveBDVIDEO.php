@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //教师端保存小白板图片数据
 //print_r($_POST);
 $vname=isset($_POST['VIDEONAME'])?$_POST['VIDEONAME']:"";
@@ -17,9 +17,10 @@ if($vname!="" && $vdata!="" && $GID!=0)
       //print_r($vType);
       if(count($vType)==2)
       {
+         if(!is_dir("../../data/whiteboard/".$room."/".$GID)) mkdir("../../data/whiteboard/".$room."/".$GID,0777,true);
+
          file_put_contents("../../data/whiteboard/".$room."/".$GID."/".$vname.".".$vType[1][0],base64_decode($vArr[1]));
          exit('["../data/whiteboard/'.$room.'/'.$GID.'/'.$vname.".".$vType[1][0].'"]');
-
       }
       else
       {

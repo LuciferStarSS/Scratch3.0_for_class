@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //print_r($_POST);
 //教师端删除小白板文本历史数据
 error_reporting(0);
@@ -21,6 +21,8 @@ if($TXTID!="" && $GID!=0)
    }
 
    unset($historyTXT[$TXTID]);
+   if(!is_dir("../../data/whiteboard/".$room."/".$GID."/txt")) mkdir("../../data/whiteboard/".$room."/".$GID."/txt",0777,true);
+
    file_put_contents("../../data/whiteboard/".$room."/".$GID."/txt/history.txt",serialize($historyTXT));
 
    exit('["OK"]');

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //教师端获取小白板历史存档数据列表
 
 $GID=isset($_POST['GID'])?intval($_POST['GID']):0;
@@ -6,6 +6,9 @@ $room=isset($_COOKIE['R'])?intval($_COOKIE['R']):0;
 if($GID!=0)
 {
    $add="../../data/whiteboard/".$room."/".$GID."/bd/";
+
+   if(!is_dir($add)) mkdir($add,0777,true);
+
    $files=Array();
    if ($handle_date = @opendir($add))
    {

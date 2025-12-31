@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //教师端删除小白板图片历史数据
 //print_r($_POST);
 $imgname=isset($_POST['IMGNAME'])?$_POST['IMGNAME']:"";
@@ -16,10 +16,9 @@ if(isset($teacher_room[$ip]) && $GID!=0)			//仅限教师访问，防止非授�
    {
       if(file_exists("../../data/whiteboard/".$room."/".$GID."/".$imgname))
       {
-
          if(strpos($imgname,"LINES/")===false)		//线条不备份
          {
-            if(!is_dir("../../data/whiteboard/".$room."/".$GID."/bak/")) mkdir("./board/".$room."/".$GID."/bak/");
+            if(!is_dir("../../data/whiteboard/".$room."/".$GID."/bak/")) mkdir("./board/".$room."/".$GID."/bak/",0777,true);
 
             rename("../../data/whiteboard/".$room."/".$GID."/".$imgname,"./".$room."/".$GID."/bak/".time()."_".$imgname);
             exit("OK");

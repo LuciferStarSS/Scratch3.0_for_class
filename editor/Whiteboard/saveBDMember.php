@@ -12,6 +12,9 @@ if(isset($teacher_room[$ip]) && $classid>0)			//仅限教师访问，防止非授权访问导致
 {
    $room=$teacher_room[$ip][1];					//教室
 
+
+   if(!is_dir("../../data/config/".$room."/")) mkdir("../../data/config/".$room."/",0777,true);
+
    file_put_contents("../../data/config/".$room."/".$classid.".member.dat",$member);
    file_put_contents("../../data/config/".$room."/".$classid.".group.dat",$group);
 }

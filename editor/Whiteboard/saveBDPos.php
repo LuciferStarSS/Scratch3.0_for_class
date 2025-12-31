@@ -13,6 +13,8 @@ if(isset($teacher_room[$ip]))					//仅限教师访问，防止非授权访问导致数据丢失。
 {
    $room=$teacher_room[$ip][1];					//机房
 
+   if(!is_dir("../../data/config/".$room."/")) mkdir("../../data/config/".$room."/",0777,true);
+
    @file_put_contents("../../data/config/".$room."/".$classid.".bdpos.dat",$pos);
    echo "['OK']";
 }

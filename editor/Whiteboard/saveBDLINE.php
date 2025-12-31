@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //教师端保存小白板图片数据
 //print_r($_POST);
 
@@ -19,7 +19,7 @@ if($imgdata!="" && $GID!=0)
       if(count($imgType)==2)
       {
 
-         if(!is_dir("../../data/whiteboard/".$room."/".$GID."/LINES/")) mkdir("../../data/whiteboard/".$room."/".$GID."/LINES/");
+         if(!is_dir("../../data/whiteboard/".$room."/".$GID."/LINES/")) mkdir("../../data/whiteboard/".$room."/".$GID."/LINES/",0777,true);
 
          file_put_contents("../../data/whiteboard/".$room."/".$GID."/LINES/".md5($imgArr[1]).".".$imgType[1][0],base64_decode($imgArr[1]));
          exit('["'.md5($imgArr[1]).'","../data/whiteboard/'.$room.'/'.$GID.'/LINES/'.md5($imgArr[1]).'.'.$imgType[1][0].'"]');

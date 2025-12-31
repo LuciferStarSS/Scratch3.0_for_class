@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //教师端保存小白板文本历史数据
 //print_r($_POST);
 error_reporting(0);
@@ -20,6 +20,10 @@ if($TXTID!="" && $TXTDATA!="" && $GID!=0)
    if(!in_array($TXTDATA,$historyTXT))
    {
       $historyTXT[$TXTID]=$TXTDATA;
+
+      if(!is_dir("../../data/whiteboard/".$room."/".$GID."/txt")) mkdir("../../data/whiteboard/".$room."/".$GID."/txt",0777,true);
+
+
       file_put_contents("../../data/whiteboard/".$room."/".$GID."/txt/history.txt",serialize($historyTXT));
    }
 
