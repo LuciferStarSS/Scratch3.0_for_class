@@ -130,11 +130,11 @@ function loadBDAttach(grade_id) {
          if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
 
          var o=document.getElementById("attach");
-         o.length=0;
+         o.length=1;
          if(data=="") return;
          data = eval(data);
          if (data.length > 0) {
-            o.add(new Option("请选择图片/视频", ""));
+            //o.add(new Option("请选择图片/视频", ""));
             var proj=document.getElementById("newpp");
             if(proj){
                proj.value=data[0]==false?"未命名":data[0];
@@ -2943,10 +2943,16 @@ function addImg()
    {
       var arr=o.value.split("?t=");
       //if(arr.length==2)
-      o.value=arr[0];      
-      var nid=o.value.substr(o.value,o.value.lastIndexOf('.'));
+      var ovalue=arr[0];   
 
-      if(o.value.indexOf(".mp4")>0)//添加视频
+      var arr2=ovalue.split("data/whiteboard/"+room+"/"+gradeid+"/");
+
+      if(arr2.length>1)
+         ovalue=arr2[1];
+   
+      var nid=ovalue.substr(o.value,o.value.lastIndexOf('.'));
+
+      if(ovalue.indexOf(".mp4")>0)//添加视频
       {
 
 
@@ -2962,7 +2968,7 @@ function addImg()
       var divcontrol = document.createElement("div");		//创建新DIV
       divcontrol.style="visibility:hidden;background: ghostwhite; width: 110px; height: 22px; position: relative;";
 
-      var ovalue=o.value;
+      //var ovalue=ovalue;
       var remove = document.createElement("img");			//创建新IMG：删除按钮
       remove.style="position: relative;top: 2px;";
       remove.title="回收";
@@ -3011,7 +3017,7 @@ function addImg()
       var video = document.createElement("video");			//创建新IMG：附件
       video.setAttribute("controls",true);
       video.setAttribute("height","100");
-      video.src="../data/whiteboard/"+room+"/"+gradeid+"/"+o.value+"?t="+Math.random();
+      video.src="../data/whiteboard/"+room+"/"+gradeid+"/"+ovalue+"?t="+Math.random();
       video.onmousedown=function(){dragBD(this,event)};		//添加后并不及时更新，而是等拖动后再更新。
       video.title=nid;
       divx.appendChild(video);
@@ -3040,7 +3046,7 @@ function addImg()
       var divcontrol = document.createElement("div");		//创建新DIV
       divcontrol.style="visibility:hidden;background: ghostwhite; width: 114px; height: 22px; position: relative;";
 
-      var ovalue=o.value;
+      //var ovalue=o.value;
       var remove = document.createElement("img");			//创建新IMG：删除按钮
       remove.style="position: relative;top: 2px;";
       remove.title="回收";
@@ -3048,7 +3054,7 @@ function addImg()
       remove.onclick=function(){ recycleImg(ovalue);};
       divcontrol.appendChild(remove);
 
-      var ovalue=o.value;
+      //var ovalue=o.value;
       if(ovalue.indexOf(".gif")==-1)
       {
          var edit = document.createElement("img");			//创建新IMG：删除按钮
@@ -3100,7 +3106,7 @@ function addImg()
       divx.appendChild(divcontrol);
 
       var img = document.createElement("img");			//创建新IMG：附件
-      img.src="../data/whiteboard/"+room+"/"+gradeid+"/"+o.value+"?t="+Math.random();
+      img.src="../data/whiteboard/"+room+"/"+gradeid+"/"+ovalue+"?t="+Math.random();
       img.onmousedown=function(){dragBD(this,event)};		//添加后并不及时更新，而是等拖动后再更新。
       img.title=nid;
       divx.appendChild(img);
