@@ -165,6 +165,11 @@ function loadPICKUPData(nTYPE,strID,strTYPE)
          data: { "F":strID,"T":strTYPE ,"NT":nTYPE},
          success: function (data) 
 	 {
+
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
             if(data=="") return;
             var jsonData=JSON.parse(data);
             switch(jsonData[0])
@@ -588,6 +593,11 @@ function scratch_pickupStage(target)
          data: { "S":JSON.stringify(sprite),"B":JSON.stringify(blocks),"V":JSON.stringify(variables) },
          success: function (data)
          {
+
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
             if(data.length==32) loadPICKUP();				//insertPICKUP(sprite,data);
             else newInfo("操作异常，此数据可能已存在。");
          },
@@ -691,6 +701,11 @@ function injectPICKUP()
          loadPICKUP(2);
          $.post("./Pickup/PICKUPinfo.php?t=" + Math.random(), { "T":1 }, function(data)
          {
+
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
             if(data.length>0)
             {
                jsonData=JSON.parse(data);
@@ -734,6 +749,11 @@ function injectPICKUP()
          loadPICKUP(2);
          $.post("./Pickup/PICKUPinfo.php?t=" + Math.random(), { "T":2 }, function(data)
          {
+
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+            if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
             if(data.length>0)
             {
                jsonData=JSON.parse(data);
@@ -803,6 +823,11 @@ function scratch_call(strTYPE,xVal)
                data: { "S":JSON.stringify(sprite),"B":JSON.stringify(blocks),"V":JSON.stringify(variables) },
                success: function (data)
                {
+
+                  if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+                  if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+                  if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
                   if(data.length==32) loadPICKUP();			//insertPICKUP(sprite,data);
                   else newInfo("操作异常，此数据可能已存在。");
                },
