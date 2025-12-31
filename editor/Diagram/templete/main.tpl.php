@@ -7,7 +7,7 @@
       <div id=TITLE style="position:absolute;left:0px;top:5px;color:white;" align="center">&nbsp;&nbsp;流程图&nbsp;&nbsp;&nbsp;&nbsp;</div>
       <div align="right" ><img style="position: relative;height:24px;width:24px;right: 5px; top: 4px;" src="./img/close.png" onclick="showDIAGRAM();"><hr></div>
     </div>
-    <div id=CodeEditorX style="position:absolute;height:490px;width:800px;top:32px;left:0px;background:white;z-Index:99999999">
+    <div id=CodeEditorX style="position:absolute;height:490px;width:801px;top:32px;left:0px;background:white;z-Index:99999999">
       <div class="flex flex-col prose">
         <div class="w-full max-w-screen-xl mx-auto">
           <!-- * * * * * * * * * * * * * -->
@@ -80,7 +80,7 @@ else//学生端暂无功能，仅占位
               <!--顶部菜单控制结束-->
 
               <!--流程图程序主界面-->
-              <div style="position: relative;top: -38px;height:492px;">
+              <div style="position: relative;top: <?php echo $admin?"-38":"-52";?>px;height:492px;">
                 <div style="width: 100%; display: flex; justify-content: space-between">
                   <div id="myPaletteDiv" style="width: 103px; top:0px; border:0px solid black; position: relative;  cursor: auto;">
                     <canvas  tabindex="0" width="100" height="400px" style="position: absolute; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 103px; height:400px; cursor: auto;"></canvas>
