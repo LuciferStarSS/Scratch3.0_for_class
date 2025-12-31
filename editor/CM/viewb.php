@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 error_reporting(0);
 header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
@@ -29,11 +29,10 @@ if( $bkfilename!="" && $date!="" && $classid!="" && isset($classname[$classid-1]
       $projname=validateFilename(@file_get_contents($filenamepath));
    }
 
-   $filepath="../../".$student_works.$class."/".$date."/backup/$ip"."_".$username."_".$projname."/".$bkfilename;//限定路径，防止越界。
-   //echo $filepath;
-   if(file_exists($filepath))
+   $filepath="../".$student_works.$class."/".$date."/backup/$ip"."_".$username."_".$projname."/".$bkfilename;//限定路径，防止越界。
+   if(file_exists("../".$filepath))
    {
-      echo $filepath."?t=".rand(0,255);
+      echo "../../".$filepath."?112t=".rand(0,255);
 //      echo file_get_contents($filepath);
    }
 }

@@ -17,12 +17,12 @@ if($filename!="" && $date!="" && $classid!="" && isset($classname[$classid-1]))
 //echo $classname[$classid-1];
    $class=$classname[$classid-1];//iconv("UTF-8","GBK",$classname[$classid-1]);
 //echo $class;
-   $filepath="../../".$student_works.$class."/".$date."/".$filename;//iconv("GBK","UTF-8",$filename);//限定路径，防止越界。
+   $filepath="../".$student_works.$class."/".$date."/".$filename;//iconv("GBK","UTF-8",$filename);//限定路径，防止越界。
 //echo $filepath;
 //echo "|||";
-   if(file_exists($filepath))
+   if(file_exists("../".$filepath))
    {
-       echo "../../".$filepath."?t=".rand(0,255);
+       echo $filepath."?11t=".rand(0,255);
        //echo $filepath;
        exit;//      echo file_get_contents($filepath);
    }
@@ -32,7 +32,7 @@ if($filename!="" && $date!="" && $classid!="" && isset($classname[$classid-1]))
 
       if(file_exists($filepath))
       {
-         echo "../../".$filepath."?t=".rand(0,255);
+         echo "../".$filepath."?22t=".rand(0,255);
          //echo $filepath;
          exit;//         echo file_get_contents($filepath);
       }
