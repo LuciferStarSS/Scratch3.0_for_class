@@ -3346,7 +3346,8 @@ function recycleImg(value)
       //var nid=value.substr(value,value.lastIndexOf('.'));
 
       var idx=document.getElementById(id);   //删除已存在的DIV
-      idx.parentElement.removeChild(idx);
+      if(idx!=null)
+         idx.parentElement.removeChild(idx);
 
       var bFound=0;			   //确保不重复添加附件
       for(i=0;i<o.length;i++)
