@@ -8,22 +8,32 @@ $classid=isset($_POST['classid'])?$_POST['classid']:"";	//班级ID
 $stname=isset($_POST['sname'])?$_POST['sname']:"";	//学生姓名
 $stpsd=isset($_POST['spsd'])?$_POST['spsd']:"";		//学生密码
 
-$crc=count($class_room);
+$crc=count($classroom_list);
 $msg="";
 if($classid>=0 && isset($names[$classid]) && $stname!="" &&isset($names[$classid][$stname]) && $stpsd!="")
 {
 //print_r($_POST);
    if($stpsd==$names[$classid][$stname])      //echo "正确登录。";
    {
-      setCookie("CLASSID",$classid,time()+3600*8,$site_path);
       setCookie("USERNAME",$stname,time()+3600*8,$site_path);
       setCookie("DD",date("Y-m-d"),time()+3600*8,$site_path);
+      //setCookie("R",$rooms[$classid-1],time()+3600*8,$site_path);
 
       if($classid>0 && isset($grades[$classid-1]))//教师不区分年级
+      {
+         setCookie("R",$rooms[$classid-1],time()+3600*8,$site_path);
+         setCookie("CLASSID",$classid,time()+3600*8,$site_path);
          setCookie("GRADEID",$grades[$classid-1],time()+3600,$site_path);
+      }
       else
-         setCookie("GRADEID",0,time()+3600*8,$site_path);
-
+      {
+         if(isset($teachername_room[$stname]))
+         {
+            setCookie("R",$teachername_room[$stname],time()+3600*8,$site_path);
+            //setCookie("CLASSID",$classid,time()+3600*8,$site_path);
+            setCookie("GRADEID",5,time()+3600*8,$site_path);//临时年级
+         }
+      }
       if(!file_exists("./".$student_works)) mkdir("./".$student_works);
       if(isset($classname[$classid-1]) && !file_exists("./".$student_works.$classname[$classid-1])) mkdir("./".$student_works.$classname[$classid-1]);
 
@@ -61,7 +71,7 @@ if($classid>=0 && isset($names[$classid]) && $stname!="" &&isset($names[$classid
      {
         for($i=0;$i<$crc;$i++)
         {
-           echo "	  <option value=".$class_room[$i]." ".(($classid==$class_room[$i])?"selected":"") .">".$classname[$class_room[$i]-1]."</option>";
+           echo "	  <option value=".$classroom_list[$i]." ".(($classid==$classroom_list[$i])?"selected":"") .">".$classname[$classroom_list[$i]-1]."</option>";
         }
       }
 ?>
