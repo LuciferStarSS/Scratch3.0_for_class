@@ -960,10 +960,16 @@ function uploadImg()
 
                if(JSON.stringify(jsonArr)=="{}") return;
 
-               strIMGNAME=strIMGNAME.replace("./LINES/","");
-               //document.getElementById(strIMGNAME).children[1].src="./whiteboard/"+room+"./"+gradeid+"/"+jsonArr[0]+"?t="+Math.random();
+               strIMGNAME=strIMGNAME.replace("LINES/","");
 
-               for(var i=0;i<jsonArr.length;i++)					//虽然当前系统默认是png，但为了稳妥，再确定一次。
+               if( jsonArr[0].indexOf(strIMGNAME)!=-1)
+               {
+                  if(document.getElementById(strIMGNAME)==null) insertImg(strIMGNAME,jsonArr[0]);
+                  else
+                    document.getElementById(strIMGNAME).children[1].src=jsonArr[0]+"?t="+Math.random();	//加随机数，让浏览器获取最新的图片。
+               }
+
+               /*for(var i=0;i<jsonArr.length;i++)					//虽然当前系统默认是png，但为了稳妥，再确定一次。
                {
                   if( jsonArr[i].indexOf(strIMGNAME)!=-1)
                   {
@@ -973,7 +979,7 @@ function uploadImg()
 //                       document.getElementById(strIMGNAME).children[1].src="../data/whiteboard/"+room+"./"+gradeid+"/"+jsonArr[i]+"?t="+Math.random();	//加随机数，让浏览器获取最新的图片。
                      break;
                   }
-               }
+               }*/
                OptArr.length=0;
                saveBD(0);
                updateUndoRedo_UI();
