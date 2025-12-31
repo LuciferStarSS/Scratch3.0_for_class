@@ -50,6 +50,11 @@ function loadPICKUP( nTYPE=-1 )	//默认加载全部
 {
    $.post("./Pickup/loadPICKUPS.php?t=" + Math.random(), { "T":nTYPE }, function(data)
    {
+
+      if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+      if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+      if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
       if(data=="") return;
       jsonData=JSON.parse(data);
       //var PVType=Array("个人","班级","年级");

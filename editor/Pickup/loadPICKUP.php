@@ -122,8 +122,8 @@ if($type && strlen($fid)==32 && $username)
             $path1="../../data/pickup/".$room."_".$gid."_".$cid."_".$username;
             $path2="../../data/pickup/".$room."_".$gid."_".$cid;
 
-            if(!file_exists($path2))   mkdir($path2);
-            if(!file_exists($path2."/data"))   mkdir($path2."/data");
+            //if(!file_exists($path2))   mkdir($path2);
+            if(!file_exists($path2."/data"))   mkdir($path2."/data",0777,true);
 
             copy( $path1."/data/".$fid.".blocks",    $path2."/data/".$fid.".blocks");
             copy( $path1."/data/".$fid.".variables", $path2."/data/".$fid.".variables");
@@ -138,8 +138,8 @@ if($type && strlen($fid)==32 && $username)
             $path1="../../data/pickup/".$room."_".$gid."_".$cid."_".$username;
             $path2="../../data/pickup/".$room."_".$gid;
 
-            if(!file_exists($path2))   mkdir($path2);
-            if(!file_exists($path2."/data"))   mkdir($path2."/data");
+            //if(!file_exists($path2))   mkdir($path2);
+            if(!file_exists($path2."/data"))   mkdir($path2."/data",0777,true);
 
             copy( $path1."/data/".$fid.".blocks",    $path2."/data/".$fid.".blocks");
             copy( $path1."/data/".$fid.".variables", $path2."/data/".$fid.".variables");

@@ -25,7 +25,7 @@ if($script && $username)
    { 
       //if(!file_exists("../../data/pickup")) mkdir("../data/pickup");
       //if(!file_exists("../../data/pickup/".$room."_".$gid."_".$cid."_".$username))           mkdir("../../data/pickup/".$room."_".$gid."_".$cid."_".$username);
-      if(!file_exists("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/data"))   mkdir("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/data",0744,true);
+      if(!file_exists("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/data/"))   mkdir("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/data/",0777,true);
 
       file_put_contents("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/".$fid,$script);
       file_put_contents("../../data/pickup/".$room."_".$gid."_".$cid."_".$username."/data/".$fid.".blocks",$blocks);
@@ -45,7 +45,7 @@ if($script && $username)
          $imgChr.=chr($img[$i]);
       }
 
-      if(!file_exists("../../data/pickup/img"))          mkdir("../data/pickup/img",0744,true);
+      if(!file_exists("../../data/pickup/img/"))          mkdir("../../data/pickup/img/",0777,true);
 
       if(!file_exists("../../data/pickup/img/".md5($imgChr).".".$j["costume"]["asset"]["assetType"]["runtimeFormat"])) 
          file_put_contents("../../data/pickup/img/".md5($imgChr).".".$j["costume"]["asset"]["assetType"]["runtimeFormat"],$imgChr);	//另存预览图
