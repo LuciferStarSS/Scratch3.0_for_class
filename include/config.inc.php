@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //WebSocket广播系统的服务器地址，默认为服务器的IP
 $WSSERVER	=	($_SERVER['SERVER_ADDR']=="::1")?"127.0.0.1":$_SERVER['SERVER_ADDR'];
@@ -223,5 +223,4 @@ function validateFilename($filename)
 function validateMsg($msg)
 {
    return str_replace(Array('<script','</script>'),'*',$msg);
-
 }
