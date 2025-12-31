@@ -22,7 +22,7 @@ $from=isset($_GET["F"])?$_GET["F"]:"teacher";//获取数据来源，默认为教
 //echo $from;
 
 if($CLASSID!=NULL)
-   $CNAME=$classname[$CLASSID-1];
+   $CNAME=isset($classname[$CLASSID-1])?$classname[$CLASSID-1]:0;
 else 
 {
    echo json_encode(Array("ERROR","NO CLASSID INFO","NO CLASSID INFO."));
