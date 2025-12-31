@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 error_reporting(E_ALL);//print_r($_REQUEST);
 include("../../include/config.inc.php");
 

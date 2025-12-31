@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include("../../include/config.inc.php");
 $CLID=isset($_POST['cid'])?intval($_POST['cid']):"";
 $FOLDER=isset($_POST['f'])?$_POST['f']:"";
@@ -15,7 +15,7 @@ if($CLID!="" && $FOLDER!="" && $FILENAME!="" && isset($classname[$CLID-1]))
 {
    //echo "../".$student_works."/".$CLID;
    //复制项目文件
-   if(!is_dir( "../../top/".$CLID)) mkdir( "../top/".$CLID);
+   if(!is_dir( "../../top/".$CLID)) mkdir( "../../top/".$CLID);
    copy( "../../".$student_works. $classname[$CLID-1]."/".$FOLDER."/".$FILENAME, "../../top/".$CLID."/".md5($FOLDER.$FILENAME).".SB3");
    file_put_contents("../../top/".$CLID."/".md5($FOLDER.$FILENAME).".INFO",$FOLDER."|".$FILENAME);
    //echo iconv("GBK","UTF-8","推送已完成。");
