@@ -9,6 +9,10 @@
 
 与此类似的有：积木与文本代码互转功能ScratchToText, 流程图Diagram, 小白板WhiteBoard,暂存盘Pickup。
 
+
+注：由于此版本无数据库，所以对作品的打分、素问速答自动打分，以及分组后对学生的评分这两个功能无效。
+
+
 下图可点击后观看老版本的功能演示。新版本在这个基础上有调整。
 [![Watch the video](wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
 
