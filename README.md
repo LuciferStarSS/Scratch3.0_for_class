@@ -1,10 +1,10 @@
 # Scratch3.0_for_class
 
-main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
+main已停更，请移步V2。
 
-main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
+main已停更，请移步V2。
 
-main已停更，请移步V2。请将main的/editor/static/中数据复制到V2中。
+main已停更，请移步V2。
 
 main旧界面：
 [![Watch the video](wiki_resource/%E5%8A%9F%E8%83%BD.png)](https://github.com/LuciferStarSS/Scratch3.0_for_class/raw/main/wiki_resource/demo.mp4)
@@ -30,6 +30,8 @@ V2新界面：
 
 由于开始遵循“BSD 3-Clause "New" or "Revised" License”，所以，我需要逐步地将Scratch字样，从项目中剥离了。
 
-今后，Scratch3.0内核（projects.bundle.js）的更新，将由 https://github.com/LuciferStarSS/scratch3_projects_bundle_js_editor 来完成，
+
+今后，Scratch3.0内核（projects.bundle.js）的更新，
+将由 https://github.com/LuciferStarSS/scratch3_projects_bundle_js_editor 来完成，
 
 积木与类C语言互转的更新则在此项目中：https://github.com/LuciferStarSS/ScratchToText
