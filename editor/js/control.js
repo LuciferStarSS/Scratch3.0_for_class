@@ -1823,7 +1823,8 @@ var stream = null;
 
 //开始录制
 function startRecording(){
-   canvas = document.querySelector('canvas');
+   //canvas = document.querySelector('canvas');
+   canvas = document.getElementsByTagName("canvas")[2];
    canvas.addEventListener('webglcontextlost', function(e) {
       //console.log(e); 
    }, false);
