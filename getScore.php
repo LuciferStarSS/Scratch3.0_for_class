@@ -1,5 +1,5 @@
 <?php
-exit（);
+exit();
 //原系统学生分数保存在数据库中，而本项目不涉及数据库，所以该功能暂不可用。
 include "../../include/config.inc.php";
 error_reporting(0);
