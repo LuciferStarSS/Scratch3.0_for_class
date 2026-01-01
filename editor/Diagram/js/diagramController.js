@@ -328,6 +328,11 @@
         return;
      }
      $.post("./Diagram/loadDiagramming.php?F="+from,{},function(data){
+
+        if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);//去掉可能存在的BOM头，等算法定型后，就不需要了。
+        if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);		//消除BOM头
+        if(data.charCodeAt(0) === 0xFEFF) data=data.slice(1);
+
         var jsonData=JSON.parse(data);
         if(jsonData)
         {
@@ -341,7 +346,7 @@
             else{
                //myDiagram.clear();
                if(typeof parent.newInfo ==="function")
-                  parent.newInfo("数据异常，请稍后刷新试试。\n\n(错误信息："+jsonData[0]+" on "+jsonData[1]+")",false,false);
+                  parent.newInfo("数据异常，请稍后刷新试试。\n\n(错误信息："+jsonData[0]+" on "+jsonData[1]+")");
                else
                   alert("数据异常，请稍后刷新试试。\n\n(错误信息："+jsonData[0]+" on "+jsonData[1]+")");
             }
