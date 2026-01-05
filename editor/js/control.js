@@ -3,7 +3,7 @@
 保存操作将会清除备份。或者，让学生选择是否要清除备份。
 ************************************************************/
 var bSaving = false;			//当前是否在执行保存操作
-//var scratch = null;			//Scratch2.0 flash版残余数据。
+var scratch = null;			//Scratch主窗口
 var bLoaded = false;			//检测是否已经加载项目文件
 var bPlayMode = true;			//Scratch模式：  true:播放模式	false:编辑模式
 var bFirstTimeSaving = true;		//新建后第一次保存，需要刷新文件夹。
@@ -1823,8 +1823,7 @@ var stream = null;
 
 //开始录制
 function startRecording(){
-   //canvas = document.querySelector('canvas');
-   canvas = document.getElementsByTagName("canvas")[2];
+   canvas = document.querySelector('canvas');
    canvas.addEventListener('webglcontextlost', function(e) {
       //console.log(e); 
    }, false);
