@@ -1,4 +1,4 @@
-<?php
+﻿<?php
    header("Pragma: no-cache");
    header("Cache-Control: no-cache");
    error_reporting(0);
@@ -60,14 +60,22 @@
    //$ip="192.168.3.17";
    $admin=0;
    $room=0;			//教室编号直接从IP获取
-   if(isset($teacher_room[$ip]))	//教师访问
+
+   if(isset($teachername_room[$username]))	//教师对应的教室
    {
-      $room=$teacher_room[$ip][1];
-      $username=$teacher_room[$ip][0];
+      $room=$teachername_room[$username];
       $admin=1;
-      $gradeid=5;
-      $classid=1;
+      $gradeid=5;	//默认五年级  不设默认值的话./editor/index.php里的js代码会出错。
+      $classid=1;	//默认班级1
    }
+   //else   if(isset($teacher_room[$ip]))	//预设教师IP访问
+   //{
+   //   $room=$teacher_room[$ip][1];
+   //   $username=$teacher_room[$ip][0];
+   //   $admin=1;
+   //   $gradeid=5;
+   //   $classid=1;
+   //}
    else				//学生访问
    {
       $ips=explode('.',$ip);				//拆分IP，根据IP段确定计算机教室
@@ -78,11 +86,12 @@
       $username=sprintf("%02d_%s",$ips[3]-$student_room[$ips[2]][1],$username);
    }
 
-   if($x==1)
+   if($x==1)		//页面匿名测试
    {
       $admin=0;
       $username="0".rand(1,9)."_test";
    }
+
    $filenamepath= "../data/task/".$room."_".$gradeid."_task.inc.php";
    $projname=@file_get_contents($filenamepath);
    $projname=$projname==""?"未命名":$projname;
